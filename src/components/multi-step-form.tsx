@@ -1,20 +1,20 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { ArrowLeft, ArrowRight, Check, Loader2 } from "lucide-react"
+import { useState } from "react";
+import { ArrowLeft, ArrowRight, Check, Loader2 } from "lucide-react";
 
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 
 interface FormStep {
-  id: string
-  title: string
-  description: string
+  id: string;
+  title: string;
+  description: string;
 }
 
 export function MultiStepForm() {
-  const [currentStep, setCurrentStep] = useState(0)
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [currentStep, setCurrentStep] = useState(0);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const steps: FormStep[] = [
     {
@@ -37,31 +37,31 @@ export function MultiStepForm() {
       title: "Budget & Timeline",
       description: "Your budget and timeline expectations",
     },
-  ]
+  ];
 
   const nextStep = () => {
     if (currentStep < steps.length - 1) {
-      setCurrentStep(currentStep + 1)
+      setCurrentStep(currentStep + 1);
     } else {
       // Submit form
-      setIsSubmitting(true)
+      setIsSubmitting(true);
       setTimeout(() => {
-        setIsSubmitting(false)
-        setIsSubmitted(true)
-      }, 1500)
+        setIsSubmitting(false);
+        setIsSubmitted(true);
+      }, 1500);
     }
-  }
+  };
 
   const prevStep = () => {
     if (currentStep > 0) {
-      setCurrentStep(currentStep - 1)
+      setCurrentStep(currentStep - 1);
     }
-  }
+  };
 
   const resetForm = () => {
-    setCurrentStep(0)
-    setIsSubmitted(false)
-  }
+    setCurrentStep(0);
+    setIsSubmitted(false);
+  };
 
   if (isSubmitted) {
     return (
@@ -71,11 +71,12 @@ export function MultiStepForm() {
         </div>
         <h3 className="text-2xl font-bold mb-2">Thank You!</h3>
         <p className="text-gray-600 dark:text-gray-400 mb-6">
-          Your message has been received. We'll get back to you within 24 hours to discuss your project.
+          Your message has been received. We&apos;ll get back to you within 24
+          hours to discuss your project.
         </p>
         <Button onClick={resetForm}>Send Another Message</Button>
       </div>
-    )
+    );
   }
 
   return (
@@ -87,7 +88,11 @@ export function MultiStepForm() {
             <div
               key={step.id}
               className={`flex flex-col items-center ${
-                index === 0 ? "items-start" : index === steps.length - 1 ? "items-end" : ""
+                index === 0
+                  ? "items-start"
+                  : index === steps.length - 1
+                  ? "items-end"
+                  : ""
               }`}
             >
               <div
@@ -97,7 +102,11 @@ export function MultiStepForm() {
                     : "bg-gray-200 dark:bg-gray-700 text-gray-500 dark:text-gray-400"
                 }`}
               >
-                {index < currentStep ? <Check className="h-4 w-4" /> : <span>{index + 1}</span>}
+                {index < currentStep ? (
+                  <Check className="h-4 w-4" />
+                ) : (
+                  <span>{index + 1}</span>
+                )}
               </div>
               <div className="text-xs mt-1 hidden sm:block">{step.title}</div>
             </div>
@@ -114,7 +123,9 @@ export function MultiStepForm() {
       {/* Step title */}
       <div className="mb-6">
         <h3 className="text-xl font-bold">{steps[currentStep].title}</h3>
-        <p className="text-gray-500 dark:text-gray-400">{steps[currentStep].description}</p>
+        <p className="text-gray-500 dark:text-gray-400">
+          {steps[currentStep].description}
+        </p>
       </div>
 
       {/* Step content */}
@@ -199,7 +210,10 @@ export function MultiStepForm() {
               </select>
             </div>
             <div className="space-y-2">
-              <label htmlFor="project-description" className="text-sm font-medium">
+              <label
+                htmlFor="project-description"
+                className="text-sm font-medium"
+              >
                 Project description
               </label>
               <textarea
@@ -217,37 +231,61 @@ export function MultiStepForm() {
               <label className="text-sm font-medium">Required features</label>
               <div className="grid grid-cols-2 gap-2">
                 <div className="flex items-center space-x-2">
-                  <input type="checkbox" id="feature-1" className="rounded border-gray-300" />
+                  <input
+                    type="checkbox"
+                    id="feature-1"
+                    className="rounded border-gray-300"
+                  />
                   <label htmlFor="feature-1" className="text-sm">
                     User authentication
                   </label>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <input type="checkbox" id="feature-2" className="rounded border-gray-300" />
+                  <input
+                    type="checkbox"
+                    id="feature-2"
+                    className="rounded border-gray-300"
+                  />
                   <label htmlFor="feature-2" className="text-sm">
                     Admin dashboard
                   </label>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <input type="checkbox" id="feature-3" className="rounded border-gray-300" />
+                  <input
+                    type="checkbox"
+                    id="feature-3"
+                    className="rounded border-gray-300"
+                  />
                   <label htmlFor="feature-3" className="text-sm">
                     Payment processing
                   </label>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <input type="checkbox" id="feature-4" className="rounded border-gray-300" />
+                  <input
+                    type="checkbox"
+                    id="feature-4"
+                    className="rounded border-gray-300"
+                  />
                   <label htmlFor="feature-4" className="text-sm">
                     File uploads
                   </label>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <input type="checkbox" id="feature-5" className="rounded border-gray-300" />
+                  <input
+                    type="checkbox"
+                    id="feature-5"
+                    className="rounded border-gray-300"
+                  />
                   <label htmlFor="feature-5" className="text-sm">
                     Reporting/analytics
                   </label>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <input type="checkbox" id="feature-6" className="rounded border-gray-300" />
+                  <input
+                    type="checkbox"
+                    id="feature-6"
+                    className="rounded border-gray-300"
+                  />
                   <label htmlFor="feature-6" className="text-sm">
                     API integration
                   </label>
@@ -255,7 +293,10 @@ export function MultiStepForm() {
               </div>
             </div>
             <div className="space-y-2">
-              <label htmlFor="additional-requirements" className="text-sm font-medium">
+              <label
+                htmlFor="additional-requirements"
+                className="text-sm font-medium"
+              >
                 Additional requirements
               </label>
               <textarea
@@ -319,11 +360,20 @@ export function MultiStepForm() {
 
       {/* Navigation buttons */}
       <div className="flex justify-between">
-        <Button variant="outline" onClick={prevStep} disabled={currentStep === 0} className="flex items-center gap-2">
+        <Button
+          variant="outline"
+          onClick={prevStep}
+          disabled={currentStep === 0}
+          className="flex items-center gap-2"
+        >
           <ArrowLeft className="h-4 w-4" />
           Back
         </Button>
-        <Button onClick={nextStep} disabled={isSubmitting} className="flex items-center gap-2">
+        <Button
+          onClick={nextStep}
+          disabled={isSubmitting}
+          className="flex items-center gap-2"
+        >
           {isSubmitting ? (
             <>
               <Loader2 className="h-4 w-4 animate-spin" />
@@ -332,11 +382,13 @@ export function MultiStepForm() {
           ) : (
             <>
               {currentStep === steps.length - 1 ? "Submit" : "Next"}
-              {currentStep === steps.length - 1 ? null : <ArrowRight className="h-4 w-4" />}
+              {currentStep === steps.length - 1 ? null : (
+                <ArrowRight className="h-4 w-4" />
+              )}
             </>
           )}
         </Button>
       </div>
     </div>
-  )
+  );
 }

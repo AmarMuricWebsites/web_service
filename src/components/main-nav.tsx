@@ -3,11 +3,14 @@
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 export function MainNav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <header className="sticky shadow-md top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -21,7 +24,6 @@ export function MainNav() {
           </span>
         </Link>
 
-        {/* Mobile menu button */}
         <button
           className="md:hidden p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -29,39 +31,59 @@ export function MainNav() {
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
-        {/* Desktop navigation */}
         <nav className="hidden md:flex items-center space-x-6">
           <Link
             href="/"
-            className="text-sm font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+            className={cn(
+              "text-sm font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors",
+              pathname.endsWith("/") && "text-blue-600"
+            )}
           >
             Home
           </Link>
           <Link
             href="/who-we-are"
-            className="text-sm font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+            className={cn(
+              "text-sm font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors",
+              pathname.endsWith("/who-we-are") && "text-blue-600"
+            )}
           >
             Who We Are
           </Link>
           <Link
             href="/what-we-offer"
-            className="text-sm font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+            className={cn(
+              "text-sm font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors",
+              pathname.endsWith("/what-we-offer") && "text-blue-600"
+            )}
           >
             What We Offer
           </Link>
           <Link
             href="/portfolio"
-            className="text-sm font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+            className={cn(
+              "text-sm font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors",
+              pathname.endsWith("/portfolio") && "text-blue-600"
+            )}
           >
             Portfolio
           </Link>
-          <Button
-            asChild
-            className="bg-gradient-to-r text-white from-blue-600 to-teal-500 hover:from-blue-700 hover:to-teal-600"
+          <Link
+            href="/contact"
+            className={cn(
+              "text-sm font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors",
+              pathname.endsWith("/contact") && "text-blue-600"
+            )}
           >
-            <Link href="/contact">Contact Us</Link>
-          </Button>
+            Contact Us
+          </Link>
         </nav>
+        <Button
+          asChild
+          className="bg-gradient-to-r text-white from-blue-600 to-teal-500 hover:from-blue-700 hover:to-teal-600"
+        >
+          <Link href="/book-consultation">Book a Consultation</Link>
+        </Button>
 
         {isMenuOpen && (
           <div className="absolute top-16 left-0 right-0 bg-background shadow-lg md:hidden">

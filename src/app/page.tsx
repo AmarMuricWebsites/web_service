@@ -16,6 +16,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import HeroImage from "@/public/web.jpg";
 import Image from "next/image";
+import { Logos } from "@/components/logots";
 
 export default function Home() {
   return (
@@ -134,28 +135,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="w-full py-12 md:py-16 border-y border-gray-100 dark:border-gray-800">
-        <div className="container px-4 md:px-6 mx-auto">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center">
-            <div className="text-xl font-medium text-gray-600 dark:text-gray-400">
-              Trusted by businesses across Sweden
-            </div>
-            <div className="flex flex-wrap justify-center gap-8 md:gap-12 lg:gap-16 grayscale opacity-70">
-              {[
-                "Company 1",
-                "Company 2",
-                "Company 3",
-                "Company 4",
-                "Company 5",
-              ].map((company, i) => (
-                <div key={i} className="flex items-center justify-center">
-                  <div className="text-2xl font-bold">{company}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      <Logos />
 
       <section className="w-full py-20 md:py-28 lg:py-32">
         <div className="container px-4 md:px-6 mx-auto">
@@ -229,7 +209,7 @@ export default function Home() {
                 <h3 className="text-xl font-bold mb-2">API Integration</h3>
                 <p className="text-gray-600 dark:text-gray-400 mb-4">
                   Seamless integration with third-party services and APIs to
-                  extend your application's functionality.
+                  extend your application&apos;s functionality.
                 </p>
                 <Link
                   href="/what-we-offer"
@@ -685,8 +665,8 @@ export default function Home() {
               What Our Clients Say
             </h2>
             <p className="max-w-[800px] text-gray-600 dark:text-gray-400 text-lg">
-              Don't just take our word for it. Here's what our clients have to
-              say about working with us.
+              Don&apos;t just take our word for it. Here&apos;s what our clients
+              have to say about working with us.
             </p>
           </div>
 
@@ -713,10 +693,10 @@ export default function Home() {
                 ))}
               </div>
               <p className="text-gray-600 dark:text-gray-400 italic">
-                "IT System Solutions delivered exactly what we needed. Their
-                team understood our business requirements perfectly and created
-                a custom solution that has significantly improved our
-                operations."
+                &quot;IT System Solutions delivered exactly what we needed.
+                Their team understood our business requirements perfectly and
+                created a custom solution that has significantly improved our
+                operations.&quot;
               </p>
             </div>
 
@@ -742,9 +722,9 @@ export default function Home() {
                 ))}
               </div>
               <p className="text-gray-600 dark:text-gray-400 italic">
-                "Working with IT System Solutions was a pleasure from start to
-                finish. Their communication was excellent, and they delivered
-                our project on time and within budget. Highly recommended!"
+                &quot;Working with IT System Solutions was a pleasure from start
+                to finish. Their communication was excellent, and they delivered
+                our project on time and within budget. Highly recommended!&quot;
               </p>
             </div>
 
@@ -770,10 +750,10 @@ export default function Home() {
                 ))}
               </div>
               <p className="text-gray-600 dark:text-gray-400 italic">
-                "The booking system IT System Solutions created for our
+                &quot;The booking system IT System Solutions created for our
                 healthcare practice has transformed how we manage appointments.
-                Our staff and patients love it, and it's saved us countless
-                hours."
+                Our staff and patients love it, and it&apos;s saved us countless
+                hours.&quot;
               </p>
             </div>
           </div>
@@ -794,94 +774,110 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="w-full py-20 md:py-28 lg:py-32">
+      <section className="w-full py-16 md:py-24 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
         <div className="container px-4 md:px-6 mx-auto">
           <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
             <div className="inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-4 py-1.5 text-sm font-medium text-blue-700 dark:border-blue-800 dark:bg-blue-900/30 dark:text-blue-300">
-              Frequently Asked Questions
+              FAQ
             </div>
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
-              Common Questions
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+              Frequently Asked Questions
             </h2>
-            <p className="max-w-[800px] text-gray-600 dark:text-gray-400 text-lg">
-              Find answers to the most common questions about our services and
-              process.
+            <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+              Find answers to common questions about our services and process
             </p>
           </div>
 
           <div className="mx-auto max-w-3xl space-y-6">
             {/* FAQ Item 1 */}
-            <div className="rounded-xl border border-blue-100 dark:border-blue-800 bg-white dark:bg-gray-800 overflow-hidden">
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-3">
-                  How much does a custom web application cost?
-                </h3>
-                <p className="text-gray-600 dark:text-gray-400">
-                  The cost depends on the complexity and scope of your project.
-                  Our packages start at 12,000 SEK for simple applications. We
-                  provide detailed quotes after understanding your specific
-                  requirements during our free consultation.
-                </p>
-              </div>
-            </div>
+            <Card className="border-blue-100 dark:border-blue-800">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-4">
+                  <div className="rounded-full bg-blue-100 p-2 dark:bg-blue-900/30">
+                    <MessageSquare className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-2">
+                      How much does a custom web application cost?
+                    </h3>
+                    <p className="text-gray-600 dark:text-gray-400">
+                      The cost depends on the complexity and scope of your
+                      project. Our packages start at 12,000 SEK for simple
+                      applications. We provide detailed quotes after
+                      understanding your specific requirements during our free
+                      consultation.
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
 
             {/* FAQ Item 2 */}
-            <div className="rounded-xl border border-blue-100 dark:border-blue-800 bg-white dark:bg-gray-800 overflow-hidden">
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-3">
-                  How long does it take to develop a custom web application?
-                </h3>
-                <p className="text-gray-600 dark:text-gray-400">
-                  Development timelines vary based on project complexity. Simple
-                  applications can be completed in 2-3 weeks, while more complex
-                  systems may take 5-8 weeks or longer. We provide a detailed
-                  timeline in our project proposal.
-                </p>
-              </div>
-            </div>
+            <Card className="border-teal-100 dark:border-teal-800">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-4">
+                  <div className="rounded-full bg-teal-100 p-2 dark:bg-teal-900/30">
+                    <MessageSquare className="h-5 w-5 text-teal-600 dark:text-teal-400" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-2">
+                      How long does it take to develop a custom web application?
+                    </h3>
+                    <p className="text-gray-600 dark:text-gray-400">
+                      Development timelines vary based on project complexity.
+                      Simple applications can be completed in 2-3 weeks, while
+                      more complex systems may take 5-8 weeks or longer. We
+                      provide a detailed timeline in our project proposal.
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
 
             {/* FAQ Item 3 */}
-            <div className="rounded-xl border border-blue-100 dark:border-blue-800 bg-white dark:bg-gray-800 overflow-hidden">
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-3">
-                  Do you provide ongoing support after the project is completed?
-                </h3>
-                <p className="text-gray-600 dark:text-gray-400">
-                  Yes, we offer various support packages to ensure your
-                  application continues to run smoothly. Our standard packages
-                  include 30-60 days of support, and we offer extended
-                  maintenance plans for ongoing assistance.
-                </p>
-              </div>
-            </div>
+            <Card className="border-purple-100 dark:border-purple-800">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-4">
+                  <div className="rounded-full bg-purple-100 p-2 dark:bg-purple-900/30">
+                    <MessageSquare className="h-5 w-5 text-purple-600 dark:text-purple-400" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-2">
+                      Do you provide ongoing support after the project is
+                      completed?
+                    </h3>
+                    <p className="text-gray-600 dark:text-gray-400">
+                      Yes, we offer various support packages to ensure your
+                      application continues to run smoothly. Our standard
+                      packages include 30-60 days of support, and we offer
+                      extended maintenance plans for ongoing assistance.
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
 
             {/* FAQ Item 4 */}
-            <div className="rounded-xl border border-blue-100 dark:border-blue-800 bg-white dark:bg-gray-800 overflow-hidden">
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-3">
-                  How do you handle communication during the project?
-                </h3>
-                <p className="text-gray-600 dark:text-gray-400">
-                  We maintain clear communication throughout the project with
-                  regular updates and progress reports. Our Swedish team handles
-                  all client communication, ensuring smooth interaction and
-                  understanding of your needs.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-12 flex justify-center">
-            <Button
-              asChild
-              size="lg"
-              className="bg-gradient-to-r from-blue-600 to-teal-500 hover:from-blue-700 hover:to-teal-600 text-white rounded-full h-14 px-8 text-lg"
-            >
-              <Link href="/contact">
-                Ask Us a Question
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </Button>
+            <Card className="border-amber-100 dark:border-amber-800">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-4">
+                  <div className="rounded-full bg-amber-100 p-2 dark:bg-amber-900/30">
+                    <MessageSquare className="h-5 w-5 text-amber-600 dark:text-amber-400" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-2">
+                      How do you handle communication during the project?
+                    </h3>
+                    <p className="text-gray-600 dark:text-gray-400">
+                      We maintain clear communication throughout the project
+                      with regular updates and progress reports. Our Swedish
+                      team handles all client communication, ensuring smooth
+                      interaction and understanding of your needs.
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>

@@ -1,7 +1,16 @@
 import Link from "next/link";
-import { Users, Globe, Award, Sparkles, Lightbulb, Target } from "lucide-react";
+import {
+  Users,
+  Globe,
+  Award,
+  Sparkles,
+  Lightbulb,
+  Target,
+  User,
+} from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 export default function WhoWeArePage() {
   return (
@@ -66,8 +75,8 @@ export default function WhoWeArePage() {
                   We recognized that many businesses struggle to find affordable
                   yet professional web development services. By leveraging our
                   experienced development team based in Serbia while maintaining
-                  Swedish management and communication, we've created a unique
-                  service model that delivers exceptional value.
+                  Swedish management and communication, we&apos;ve created a
+                  unique service model that delivers exceptional value.
                 </p>
                 <p>
                   Our founder, having worked in both the Swedish and Serbian
@@ -87,14 +96,14 @@ export default function WhoWeArePage() {
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-4">
                   <div className="overflow-hidden rounded-lg">
-                    <img
+                    <Image
                       src="/placeholder.svg?height=300&width=250"
                       alt="Our team"
                       className="h-auto w-full object-cover transition-transform duration-500 hover:scale-110"
                     />
                   </div>
                   <div className="overflow-hidden rounded-lg">
-                    <img
+                    <Image
                       src="/placeholder.svg?height=250&width=250"
                       alt="Our office"
                       className="h-auto w-full object-cover transition-transform duration-500 hover:scale-110"
@@ -103,14 +112,14 @@ export default function WhoWeArePage() {
                 </div>
                 <div className="space-y-4 pt-8">
                   <div className="overflow-hidden rounded-lg">
-                    <img
+                    <Image
                       src="/placeholder.svg?height=250&width=250"
                       alt="Team collaboration"
                       className="h-auto w-full object-cover transition-transform duration-500 hover:scale-110"
                     />
                   </div>
                   <div className="overflow-hidden rounded-lg">
-                    <img
+                    <Image
                       src="/placeholder.svg?height=300&width=250"
                       alt="Development process"
                       className="h-auto w-full object-cover transition-transform duration-500 hover:scale-110"
@@ -192,7 +201,7 @@ export default function WhoWeArePage() {
                 <h3 className="text-2xl font-bold mb-3">Results-Driven</h3>
                 <p className="text-gray-500 dark:text-gray-400 mb-4">
                   We focus on delivering measurable results that help our
-                  clients achieve their business objectives, whether that's
+                  clients achieve their business objectives, whether that&apos;s
                   increasing efficiency, improving customer experience, or
                   driving growth.
                 </p>
@@ -248,15 +257,16 @@ export default function WhoWeArePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Team Member 1 */}
+          <div className="flex justify-center flex-wrap gap-8">
             <div className="group">
-              <div className="relative overflow-hidden rounded-xl">
-                <img
+              <div className="relative overflow-hidden rounded-xl h-[350px] w-[300px] bg-blue-200">
+                {/* <Image
                   src="/placeholder.svg?height=400&width=300"
                   alt="Team Member"
                   className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110"
-                />
+                /> */}
+                <User className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2" />
+
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
                   <div className="p-4 w-full">
                     <div className="flex justify-center space-x-3">
@@ -297,21 +307,21 @@ export default function WhoWeArePage() {
                 </div>
               </div>
               <div className="mt-4 text-center">
-                <h3 className="text-xl font-bold">Erik Johansson</h3>
+                <h3 className="text-xl font-bold">Adnan Skrijelj</h3>
                 <p className="text-gray-500 dark:text-gray-400">
                   Founder & CEO
                 </p>
               </div>
             </div>
 
-            {/* Team Member 2 */}
             <div className="group">
-              <div className="relative overflow-hidden rounded-xl">
-                <img
+              <div className="relative overflow-hidden rounded-xl h-[350px] w-[300px] bg-blue-200">
+                {/* <Image
                   src="/placeholder.svg?height=400&width=300"
                   alt="Team Member"
                   className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110"
-                />
+                /> */}
+                <User className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
                   <div className="p-4 w-full">
                     <div className="flex justify-center space-x-3">
@@ -352,119 +362,9 @@ export default function WhoWeArePage() {
                 </div>
               </div>
               <div className="mt-4 text-center">
-                <h3 className="text-xl font-bold">Anna Lindberg</h3>
+                <h3 className="text-xl font-bold">Amar Muric</h3>
                 <p className="text-gray-500 dark:text-gray-400">
                   Project Manager
-                </p>
-              </div>
-            </div>
-
-            {/* Team Member 3 */}
-            <div className="group">
-              <div className="relative overflow-hidden rounded-xl">
-                <img
-                  src="/placeholder.svg?height=400&width=300"
-                  alt="Team Member"
-                  className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                  <div className="p-4 w-full">
-                    <div className="flex justify-center space-x-3">
-                      <a
-                        href="#"
-                        className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/40 transition-colors"
-                      >
-                        <span className="sr-only">LinkedIn</span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="16"
-                          height="16"
-                          fill="currentColor"
-                          className="text-white"
-                          viewBox="0 0 16 16"
-                        >
-                          <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z" />
-                        </svg>
-                      </a>
-                      <a
-                        href="#"
-                        className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/40 transition-colors"
-                      >
-                        <span className="sr-only">Twitter</span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="16"
-                          height="16"
-                          fill="currentColor"
-                          className="text-white"
-                          viewBox="0 0 16 16"
-                        >
-                          <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" />
-                        </svg>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="mt-4 text-center">
-                <h3 className="text-xl font-bold">Milan Petrović</h3>
-                <p className="text-gray-500 dark:text-gray-400">
-                  Lead Developer
-                </p>
-              </div>
-            </div>
-
-            {/* Team Member 4 */}
-            <div className="group">
-              <div className="relative overflow-hidden rounded-xl">
-                <img
-                  src="/placeholder.svg?height=400&width=300"
-                  alt="Team Member"
-                  className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                  <div className="p-4 w-full">
-                    <div className="flex justify-center space-x-3">
-                      <a
-                        href="#"
-                        className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/40 transition-colors"
-                      >
-                        <span className="sr-only">LinkedIn</span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="16"
-                          height="16"
-                          fill="currentColor"
-                          className="text-white"
-                          viewBox="0 0 16 16"
-                        >
-                          <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z" />
-                        </svg>
-                      </a>
-                      <a
-                        href="#"
-                        className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/40 transition-colors"
-                      >
-                        <span className="sr-only">Twitter</span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="16"
-                          height="16"
-                          fill="currentColor"
-                          className="text-white"
-                          viewBox="0 0 16 16"
-                        >
-                          <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" />
-                        </svg>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="mt-4 text-center">
-                <h3 className="text-xl font-bold">Jelena Nikolić</h3>
-                <p className="text-gray-500 dark:text-gray-400">
-                  UI/UX Designer
                 </p>
               </div>
             </div>
@@ -496,7 +396,7 @@ export default function WhoWeArePage() {
               Ready to Work With Our Team?
             </h2>
             <p className="text-xl mb-8 text-white/80">
-              Let's discuss how we can help your business with a custom web
+              Let&apos;s discuss how we can help your business with a custom web
               application solution tailored to your specific needs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

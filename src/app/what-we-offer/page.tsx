@@ -9,12 +9,19 @@ import {
   Users,
   Code,
   Server,
+  Layers,
+  Database,
+  Globe,
+  Cpu,
+  Cloud,
+  Lock,
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ServiceTabs } from "@/components/service-tabs";
 import { PackageComparison } from "@/components/package-comparison";
+import { Card, CardContent } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function WhatWeOfferPage() {
   return (
@@ -59,22 +66,310 @@ export default function WhatWeOfferPage() {
         </div>
       </section>
 
+      {/* REPLACED SECTION: Our Expertise with Technology Stack */}
       <section className="w-full py-16 md:py-24">
         <div className="container px-4 md:px-6 mx-auto">
           <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
             <div className="inline-block rounded-full bg-blue-100 dark:bg-blue-900/30 px-3 py-1 text-sm text-blue-700 dark:text-blue-300">
-              Our Expertise
+              Our Technology Stack
             </div>
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-              Comprehensive IT Solutions
+              Cutting-Edge Technologies
             </h2>
             <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-              Discover our range of specialized services designed to meet your
-              business needs
+              We use the latest technologies to build robust, scalable, and
+              high-performance solutions
             </p>
           </div>
 
-          <ServiceTabs />
+          <Tabs defaultValue="frontend" className="max-w-4xl mx-auto">
+            <TabsList className="grid grid-cols-4 h-auto p-1 mb-8">
+              <TabsTrigger value="frontend" className="py-3">
+                Frontend
+              </TabsTrigger>
+              <TabsTrigger value="backend" className="py-3">
+                Backend
+              </TabsTrigger>
+              <TabsTrigger value="database" className="py-3">
+                Database
+              </TabsTrigger>
+              <TabsTrigger value="cloud" className="py-3">
+                Cloud & DevOps
+              </TabsTrigger>
+            </TabsList>
+
+            <TabsContent value="frontend" className="mt-0">
+              <Card>
+                <CardContent className="p-6">
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+                    <div className="flex flex-col items-center text-center p-4 rounded-lg bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700">
+                      <div className="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mb-4">
+                        <Layers className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+                      </div>
+                      <h3 className="font-bold mb-1">React</h3>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">
+                        Modern UI development
+                      </p>
+                    </div>
+
+                    <div className="flex flex-col items-center text-center p-4 rounded-lg bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700">
+                      <div className="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mb-4">
+                        <Zap className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+                      </div>
+                      <h3 className="font-bold mb-1">Next.js</h3>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">
+                        Full-stack React framework
+                      </p>
+                    </div>
+
+                    <div className="flex flex-col items-center text-center p-4 rounded-lg bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700">
+                      <div className="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mb-4">
+                        <Code className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+                      </div>
+                      <h3 className="font-bold mb-1">TypeScript</h3>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">
+                        Type-safe JavaScript
+                      </p>
+                    </div>
+
+                    <div className="flex flex-col items-center text-center p-4 rounded-lg bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700">
+                      <div className="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mb-4">
+                        <Cpu className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+                      </div>
+                      <h3 className="font-bold mb-1">Tailwind CSS</h3>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">
+                        Utility-first CSS framework
+                      </p>
+                    </div>
+
+                    <div className="flex flex-col items-center text-center p-4 rounded-lg bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700">
+                      <div className="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mb-4">
+                        <Globe className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+                      </div>
+                      <h3 className="font-bold mb-1">React Native</h3>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">
+                        Cross-platform mobile apps
+                      </p>
+                    </div>
+
+                    <div className="flex flex-col items-center text-center p-4 rounded-lg bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700">
+                      <div className="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mb-4">
+                        <Users className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+                      </div>
+                      <h3 className="font-bold mb-1">UI Libraries</h3>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">
+                        MUI, Chakra UI, shadcn/ui
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+
+            <TabsContent value="backend" className="mt-0">
+              <Card>
+                <CardContent className="p-6">
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+                    <div className="flex flex-col items-center text-center p-4 rounded-lg bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700">
+                      <div className="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center mb-4">
+                        <Server className="h-6 w-6 text-green-600 dark:text-green-400" />
+                      </div>
+                      <h3 className="font-bold mb-1">Node.js</h3>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">
+                        JavaScript runtime
+                      </p>
+                    </div>
+
+                    <div className="flex flex-col items-center text-center p-4 rounded-lg bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700">
+                      <div className="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center mb-4">
+                        <Zap className="h-6 w-6 text-green-600 dark:text-green-400" />
+                      </div>
+                      <h3 className="font-bold mb-1">Express.js</h3>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">
+                        Web framework for Node.js
+                      </p>
+                    </div>
+
+                    <div className="flex flex-col items-center text-center p-4 rounded-lg bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700">
+                      <div className="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center mb-4">
+                        <Code className="h-6 w-6 text-green-600 dark:text-green-400" />
+                      </div>
+                      <h3 className="font-bold mb-1">Python</h3>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">
+                        Versatile programming language
+                      </p>
+                    </div>
+
+                    <div className="flex flex-col items-center text-center p-4 rounded-lg bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700">
+                      <div className="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center mb-4">
+                        <Cpu className="h-6 w-6 text-green-600 dark:text-green-400" />
+                      </div>
+                      <h3 className="font-bold mb-1">Django</h3>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">
+                        Python web framework
+                      </p>
+                    </div>
+
+                    <div className="flex flex-col items-center text-center p-4 rounded-lg bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700">
+                      <div className="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center mb-4">
+                        <Globe className="h-6 w-6 text-green-600 dark:text-green-400" />
+                      </div>
+                      <h3 className="font-bold mb-1">GraphQL</h3>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">
+                        API query language
+                      </p>
+                    </div>
+
+                    <div className="flex flex-col items-center text-center p-4 rounded-lg bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700">
+                      <div className="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center mb-4">
+                        <Lock className="h-6 w-6 text-green-600 dark:text-green-400" />
+                      </div>
+                      <h3 className="font-bold mb-1">Auth Solutions</h3>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">
+                        NextAuth, Auth0, Clerk
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+
+            <TabsContent value="database" className="mt-0">
+              <Card>
+                <CardContent className="p-6">
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+                    <div className="flex flex-col items-center text-center p-4 rounded-lg bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700">
+                      <div className="w-12 h-12 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center mb-4">
+                        <Database className="h-6 w-6 text-purple-600 dark:text-purple-400" />
+                      </div>
+                      <h3 className="font-bold mb-1">PostgreSQL</h3>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">
+                        Relational database
+                      </p>
+                    </div>
+
+                    <div className="flex flex-col items-center text-center p-4 rounded-lg bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700">
+                      <div className="w-12 h-12 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center mb-4">
+                        <Database className="h-6 w-6 text-purple-600 dark:text-purple-400" />
+                      </div>
+                      <h3 className="font-bold mb-1">MongoDB</h3>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">
+                        NoSQL database
+                      </p>
+                    </div>
+
+                    <div className="flex flex-col items-center text-center p-4 rounded-lg bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700">
+                      <div className="w-12 h-12 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center mb-4">
+                        <Database className="h-6 w-6 text-purple-600 dark:text-purple-400" />
+                      </div>
+                      <h3 className="font-bold mb-1">MySQL</h3>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">
+                        Relational database
+                      </p>
+                    </div>
+
+                    <div className="flex flex-col items-center text-center p-4 rounded-lg bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700">
+                      <div className="w-12 h-12 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center mb-4">
+                        <Database className="h-6 w-6 text-purple-600 dark:text-purple-400" />
+                      </div>
+                      <h3 className="font-bold mb-1">Redis</h3>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">
+                        In-memory data store
+                      </p>
+                    </div>
+
+                    <div className="flex flex-col items-center text-center p-4 rounded-lg bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700">
+                      <div className="w-12 h-12 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center mb-4">
+                        <Database className="h-6 w-6 text-purple-600 dark:text-purple-400" />
+                      </div>
+                      <h3 className="font-bold mb-1">Prisma</h3>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">
+                        ORM for Node.js
+                      </p>
+                    </div>
+
+                    <div className="flex flex-col items-center text-center p-4 rounded-lg bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700">
+                      <div className="w-12 h-12 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center mb-4">
+                        <Database className="h-6 w-6 text-purple-600 dark:text-purple-400" />
+                      </div>
+                      <h3 className="font-bold mb-1">Supabase</h3>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">
+                        Open source Firebase alternative
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+
+            <TabsContent value="cloud" className="mt-0">
+              <Card>
+                <CardContent className="p-6">
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+                    <div className="flex flex-col items-center text-center p-4 rounded-lg bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700">
+                      <div className="w-12 h-12 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center mb-4">
+                        <Cloud className="h-6 w-6 text-amber-600 dark:text-amber-400" />
+                      </div>
+                      <h3 className="font-bold mb-1">AWS</h3>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">
+                        Amazon Web Services
+                      </p>
+                    </div>
+
+                    <div className="flex flex-col items-center text-center p-4 rounded-lg bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700">
+                      <div className="w-12 h-12 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center mb-4">
+                        <Cloud className="h-6 w-6 text-amber-600 dark:text-amber-400" />
+                      </div>
+                      <h3 className="font-bold mb-1">Azure</h3>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">
+                        Microsoft&apos;s cloud platform
+                      </p>
+                    </div>
+
+                    <div className="flex flex-col items-center text-center p-4 rounded-lg bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700">
+                      <div className="w-12 h-12 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center mb-4">
+                        <Cloud className="h-6 w-6 text-amber-600 dark:text-amber-400" />
+                      </div>
+                      <h3 className="font-bold mb-1">Google Cloud</h3>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">
+                        Google&apos;s cloud services
+                      </p>
+                    </div>
+
+                    <div className="flex flex-col items-center text-center p-4 rounded-lg bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700">
+                      <div className="w-12 h-12 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center mb-4">
+                        <Zap className="h-6 w-6 text-amber-600 dark:text-amber-400" />
+                      </div>
+                      <h3 className="font-bold mb-1">Vercel</h3>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">
+                        Frontend deployment platform
+                      </p>
+                    </div>
+
+                    <div className="flex flex-col items-center text-center p-4 rounded-lg bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700">
+                      <div className="w-12 h-12 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center mb-4">
+                        <Server className="h-6 w-6 text-amber-600 dark:text-amber-400" />
+                      </div>
+                      <h3 className="font-bold mb-1">Docker</h3>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">
+                        Containerization platform
+                      </p>
+                    </div>
+
+                    <div className="flex flex-col items-center text-center p-4 rounded-lg bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700">
+                      <div className="w-12 h-12 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center mb-4">
+                        <Server className="h-6 w-6 text-amber-600 dark:text-amber-400" />
+                      </div>
+                      <h3 className="font-bold mb-1">Kubernetes</h3>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">
+                        Container orchestration
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+          </Tabs>
         </div>
       </section>
 
@@ -106,7 +401,9 @@ export default function WhatWeOfferPage() {
                     12 000 SEK
                   </div>
                 </div>
-                <h3 className="text-2xl font-bold mb-4">'MiniSystem'</h3>
+                <h3 className="text-2xl font-bold mb-4">
+                  &apos;MiniSystem&apos;
+                </h3>
                 <div className="space-y-4 mb-6">
                   <div className="flex items-start">
                     <div className="flex-shrink-0 mt-0.5">
@@ -195,7 +492,9 @@ export default function WhatWeOfferPage() {
                     28 000 SEK
                   </div>
                 </div>
-                <h3 className="text-2xl font-bold mb-4">'SmartSystem'</h3>
+                <h3 className="text-2xl font-bold mb-4">
+                  &apos;SmartSystem&apos;
+                </h3>
                 <div className="space-y-4 mb-6">
                   <div className="flex items-start">
                     <div className="flex-shrink-0 mt-0.5">
@@ -289,7 +588,9 @@ export default function WhatWeOfferPage() {
                     From 45 000 SEK
                   </div>
                 </div>
-                <h3 className="text-2xl font-bold mb-4">'PowerSystem'</h3>
+                <h3 className="text-2xl font-bold mb-4">
+                  &apos;PowerSystem&apos;
+                </h3>
                 <div className="space-y-4 mb-6">
                   <div className="flex items-start">
                     <div className="flex-shrink-0 mt-0.5">
@@ -558,7 +859,7 @@ export default function WhatWeOfferPage() {
             </h2>
             <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
               All our packages include these essential features to ensure your
-              project's success
+              project&apos;s success
             </p>
           </div>
 
@@ -678,10 +979,10 @@ export default function WhatWeOfferPage() {
                   ))}
               </div>
               <p className="text-gray-600 dark:text-gray-400 italic">
-                "The SmartSystem package was perfect for our needs. IT System
-                Solutions delivered a custom e-commerce platform that has
+                &quot;The SmartSystem package was perfect for our needs. IT
+                System Solutions delivered a custom e-commerce platform that has
                 significantly increased our sales and streamlined our
-                operations."
+                operations.&quot;
               </p>
             </div>
 
@@ -713,9 +1014,10 @@ export default function WhatWeOfferPage() {
                   ))}
               </div>
               <p className="text-gray-600 dark:text-gray-400 italic">
-                "We started with the MiniSystem for our booking system and were
-                so impressed that we upgraded to the SmartSystem. The team's
-                expertise and support have been invaluable to our business."
+                &quot;We started with the MiniSystem for our booking system and
+                were so impressed that we upgraded to the SmartSystem. The
+                team&apos;s expertise and support have been invaluable to our
+                business.&quot;
               </p>
             </div>
 
@@ -747,9 +1049,9 @@ export default function WhatWeOfferPage() {
                   ))}
               </div>
               <p className="text-gray-600 dark:text-gray-400 italic">
-                "The PowerSystem package gave us exactly what we needed - a
+                &quot;The PowerSystem package gave us exactly what we needed - a
                 fully customized inventory management system that integrates
-                with all our existing tools. Worth every krona!"
+                with all our existing tools. Worth every krona!&quot;
               </p>
             </div>
           </div>
@@ -773,7 +1075,7 @@ export default function WhatWeOfferPage() {
                   size="lg"
                   className="bg-white text-blue-600 hover:bg-gray-100"
                 >
-                  <Link href="/contact">Book Free Consultation</Link>
+                  <Link href="/book-consultation">Book Free Consultation</Link>
                 </Button>
                 <Button
                   asChild
