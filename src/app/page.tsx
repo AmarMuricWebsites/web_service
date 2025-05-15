@@ -16,7 +16,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import HeroImage from "@/public/web.jpg";
 import Image from "next/image";
-import { Logos } from "@/components/logots";
+import { Logos } from "@/components/logos";
 
 export default function Home() {
   return (
@@ -33,7 +33,7 @@ export default function Home() {
             <div className="space-y-8">
               <div className="inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-4 py-1.5 text-sm font-medium text-blue-700 dark:border-blue-800 dark:bg-blue-900/30 dark:text-blue-300">
                 <span className="flex h-2 w-2 rounded-full bg-blue-600 mr-2"></span>
-                Swedish Quality, Serbian Expertise
+                Swedish Quality
               </div>
 
               <div>
@@ -135,9 +135,7 @@ export default function Home() {
         </div>
       </section>
 
-      <Logos />
-
-      <section className="w-full py-20 md:py-28 lg:py-32">
+      <section className="w-full py-20 md:py-28 lg:py-32 relative">
         <div className="container px-4 md:px-6 mx-auto">
           <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
             <div className="inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-4 py-1.5 text-sm font-medium text-blue-700 dark:border-blue-800 dark:bg-blue-900/30 dark:text-blue-300">
@@ -153,7 +151,6 @@ export default function Home() {
           </div>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {/* Service Card 1 */}
             <Card className="group relative overflow-hidden border-blue-100 dark:border-blue-800 bg-white dark:bg-gray-800 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
               <div className="absolute top-0 right-0 h-20 w-20 bg-gradient-to-bl from-blue-600/10 to-transparent rounded-bl-3xl"></div>
               <CardContent className="p-6">
@@ -177,7 +174,6 @@ export default function Home() {
               </CardContent>
             </Card>
 
-            {/* Service Card 2 */}
             <Card className="group relative overflow-hidden border-teal-100 dark:border-teal-800 bg-white dark:bg-gray-800 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
               <div className="absolute top-0 right-0 h-20 w-20 bg-gradient-to-bl from-teal-600/10 to-transparent rounded-bl-3xl"></div>
               <CardContent className="p-6">
@@ -199,7 +195,6 @@ export default function Home() {
               </CardContent>
             </Card>
 
-            {/* Service Card 3 */}
             <Card className="group relative overflow-hidden border-purple-100 dark:border-purple-800 bg-white dark:bg-gray-800 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
               <div className="absolute top-0 right-0 h-20 w-20 bg-gradient-to-bl from-purple-600/10 to-transparent rounded-bl-3xl"></div>
               <CardContent className="p-6">
@@ -221,7 +216,6 @@ export default function Home() {
               </CardContent>
             </Card>
 
-            {/* Service Card 4 */}
             <Card className="group relative overflow-hidden border-amber-100 dark:border-amber-800 bg-white dark:bg-gray-800 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
               <div className="absolute top-0 right-0 h-20 w-20 bg-gradient-to-bl from-amber-600/10 to-transparent rounded-bl-3xl"></div>
               <CardContent className="p-6">
@@ -267,7 +261,6 @@ export default function Home() {
               </CardContent>
             </Card>
 
-            {/* Service Card 6 */}
             <Card className="group relative overflow-hidden border-green-100 dark:border-green-800 bg-white dark:bg-gray-800 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
               <div className="absolute top-0 right-0 h-20 w-20 bg-gradient-to-bl from-green-600/10 to-transparent rounded-bl-3xl"></div>
               <CardContent className="p-6">
@@ -307,10 +300,10 @@ export default function Home() {
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             <div className="flex flex-col items-center text-center">
               <div className="text-4xl md:text-5xl font-bold text-blue-600 dark:text-blue-400 mb-2">
-                50+
+                98%
               </div>
               <div className="text-lg font-medium text-gray-800 dark:text-gray-200">
-                Satisfied Clients
+                Satisfaction Rate
               </div>
               <div className="text-sm text-gray-600 dark:text-gray-400">
                 Across Sweden
@@ -319,7 +312,7 @@ export default function Home() {
 
             <div className="flex flex-col items-center text-center">
               <div className="text-4xl md:text-5xl font-bold text-teal-600 dark:text-teal-400 mb-2">
-                100+
+                23
               </div>
               <div className="text-lg font-medium text-gray-800 dark:text-gray-200">
                 Projects Delivered
@@ -331,7 +324,7 @@ export default function Home() {
 
             <div className="flex flex-col items-center text-center">
               <div className="text-4xl md:text-5xl font-bold text-purple-600 dark:text-purple-400 mb-2">
-                8+
+                4+
               </div>
               <div className="text-lg font-medium text-gray-800 dark:text-gray-200">
                 Years Experience
@@ -655,6 +648,8 @@ export default function Home() {
         </div>
       </section>
 
+      <Logos />
+
       <section className="w-full py-20 md:py-28 lg:py-32 bg-gradient-to-b from-white to-blue-50 dark:from-gray-950 dark:to-gray-900">
         <div className="container px-4 md:px-6 mx-auto">
           <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
@@ -675,12 +670,12 @@ export default function Home() {
             <div className="bg-white dark:bg-gray-800 rounded-xl border border-blue-100 dark:border-blue-800 p-6 shadow-lg">
               <div className="flex items-center gap-4 mb-6">
                 <div className="h-12 w-12 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-lg font-bold">
-                  AB
+                  MR
                 </div>
                 <div>
-                  <div className="font-bold">Anna Bergström</div>
+                  <div className="font-bold">Muhamed Rastif</div>
                   <div className="text-sm text-gray-500 dark:text-gray-400">
-                    CEO, TechSweden AB
+                    CTO in a Building Company
                   </div>
                 </div>
               </div>

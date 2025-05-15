@@ -26,12 +26,12 @@ export default function ContactPage() {
   return (
     <>
       <section className="relative overflow-hidden py-20 md:py-28">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-50 via-white to-teal-50 dark:from-blue-900/20 dark:via-gray-900 dark:to-teal-900/20">
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-50 via-white to-blue-50 dark:from-purple-900/20 dark:via-gray-900 dark:to-blue-900/20">
           <div className="absolute inset-0 opacity-20 dark:opacity-10">
             {Array.from({ length: 5 }).map((_, i) => (
               <div
                 key={i}
-                className="absolute rounded-full bg-gradient-to-br from-blue-500 to-teal-400"
+                className="absolute rounded-full bg-gradient-to-br from-purple-500 to-blue-400"
                 style={{
                   width: `${Math.random() * 300 + 100}px`,
                   height: `${Math.random() * 300 + 100}px`,
@@ -51,10 +51,10 @@ export default function ContactPage() {
 
         <div className="container relative px-4 md:px-6 mx-auto">
           <div className="max-w-3xl mx-auto text-center">
-            <div className="inline-block rounded-full bg-blue-100 dark:bg-blue-900/30 px-3 py-1 text-sm text-blue-700 dark:text-blue-300 mb-4">
+            <div className="inline-block rounded-full bg-purple-100 dark:bg-purple-900/30 px-3 py-1 text-sm text-purple-700 dark:text-purple-300 mb-4">
               Get in Touch
             </div>
-            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl bg-clip-text text-transparent bg-gradient-to-r from-blue-700 via-teal-600 to-teal-500 dark:from-blue-400 dark:via-teal-300 dark:to-teal-400 mb-6">
+            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl bg-clip-text text-transparent bg-gradient-to-r from-purple-700 via-blue-600 to-teal-500 dark:from-purple-400 dark:via-blue-300 dark:to-teal-300 mb-6">
               Contact Us
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">

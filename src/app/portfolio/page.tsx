@@ -18,12 +18,12 @@ export default function PortfolioPage() {
   return (
     <>
       <section className="relative overflow-hidden py-20 md:py-28">
-        <div className="absolute inset-0 bg-gradient-to-r from-teal-50 via-white to-blue-50 dark:from-teal-900/20 dark:via-gray-900 dark:to-blue-900/20">
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-50 via-white to-blue-50 dark:from-purple-900/20 dark:via-gray-900 dark:to-blue-900/20">
           <div className="absolute inset-0 opacity-20 dark:opacity-10">
             {Array.from({ length: 5 }).map((_, i) => (
               <div
                 key={i}
-                className="absolute rounded-full bg-gradient-to-br from-teal-500 to-blue-400"
+                className="absolute rounded-full bg-gradient-to-br from-purple-500 to-blue-400"
                 style={{
                   width: `${Math.random() * 300 + 100}px`,
                   height: `${Math.random() * 300 + 100}px`,
@@ -43,10 +43,10 @@ export default function PortfolioPage() {
 
         <div className="container relative px-4 md:px-6 mx-auto">
           <div className="max-w-3xl mx-auto text-center">
-            <div className="inline-block rounded-full bg-teal-100 dark:bg-teal-900/30 px-3 py-1 text-sm text-teal-700 dark:text-teal-300 mb-4">
+            <div className="inline-block rounded-full bg-purple-100 dark:bg-purple-900/30 px-3 py-1 text-sm text-purple-700 dark:text-purple-300 mb-4">
               Our Work
             </div>
-            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl bg-clip-text text-transparent bg-gradient-to-r from-teal-700 via-blue-600 to-blue-500 dark:from-teal-400 dark:via-blue-300 dark:to-blue-400 mb-6">
+            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl bg-clip-text text-transparent bg-gradient-to-r from-purple-700 via-blue-600 to-teal-500 dark:from-purple-400 dark:via-blue-300 dark:to-teal-300 mb-6">
               Portfolio
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
@@ -81,6 +81,8 @@ export default function PortfolioPage() {
                 <div className="absolute top-0 right-0 h-20 w-20 bg-gradient-to-bl from-blue-600/20 to-teal-500/20 rounded-bl-3xl"></div>
                 <div className="absolute bottom-0 left-0 h-20 w-20 bg-gradient-to-tr from-blue-600/20 to-teal-500/20 rounded-tr-3xl"></div>
                 <Image
+                  width={300}
+                  height={300}
                   src="/placeholder.svg?height=600&width=800"
                   alt="HealthConnect Patient Portal"
                   className="w-full h-auto"
@@ -254,6 +256,8 @@ export default function PortfolioPage() {
                 <div className="absolute top-0 right-0 h-20 w-20 bg-gradient-to-bl from-purple-600/20 to-pink-500/20 rounded-bl-3xl"></div>
                 <div className="absolute bottom-0 left-0 h-20 w-20 bg-gradient-to-tr from-purple-600/20 to-pink-500/20 rounded-tr-3xl"></div>
                 <Image
+                  width={300}
+                  height={300}
                   src="/placeholder.svg?height=600&width=800"
                   alt="SwedishCraft Marketplace"
                   className="w-full h-auto"
@@ -270,6 +274,8 @@ export default function PortfolioPage() {
                 <div className="absolute top-0 right-0 h-20 w-20 bg-gradient-to-bl from-amber-600/20 to-orange-500/20 rounded-bl-3xl"></div>
                 <div className="absolute bottom-0 left-0 h-20 w-20 bg-gradient-to-tr from-amber-600/20 to-orange-500/20 rounded-tr-3xl"></div>
                 <Image
+                  width={300}
+                  height={300}
                   src="/placeholder.svg?height=600&width=800"
                   alt="LogiTrack Fleet Management"
                   className="w-full h-auto"

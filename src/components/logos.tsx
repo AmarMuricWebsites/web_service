@@ -104,6 +104,8 @@ const Logos = ({
                     <div>
                       <Image
                         src={logo.image}
+                        width={300}
+                        height={150}
                         alt={logo.description}
                         className={logo.className}
                       />

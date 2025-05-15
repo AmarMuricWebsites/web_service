@@ -11,6 +11,10 @@ import {
 
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import Image1 from "@/public/web2.jpg";
+import Image2 from "@/public/web3.jpg";
+import Image3 from "@/public/web4.jpg";
+import Image4 from "@/public/web5.jpg";
 
 export default function WhoWeArePage() {
   return (
@@ -48,8 +52,8 @@ export default function WhoWeArePage() {
               Who We Are
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
-              A team of passionate professionals bridging Swedish quality with
-              Serbian expertise to deliver exceptional web solutions.
+              A team of passionate professionals with expertise ready to deliver
+              exceptional web solutions.
             </p>
           </div>
         </div>
@@ -74,16 +78,14 @@ export default function WhoWeArePage() {
                 <p>
                   We recognized that many businesses struggle to find affordable
                   yet professional web development services. By leveraging our
-                  experienced development team based in Serbia while maintaining
-                  Swedish management and communication, we&apos;ve created a
-                  unique service model that delivers exceptional value.
+                  experienced development team, we&apos;ve created a unique
+                  service model that delivers exceptional value.
                 </p>
                 <p>
-                  Our founder, having worked in both the Swedish and Serbian
-                  tech industries, saw an opportunity to bridge the gap between
-                  these two markets. This vision has allowed us to combine
-                  Swedish business standards with Serbian technical expertise,
-                  creating a perfect balance of quality and cost-effectiveness.
+                  Our founder, recognized the problems that small and middle
+                  sized companies faced when wanting to digitalize their
+                  organisations. Through many years of experieance we managed to
+                  perfect the balance of quality and cost-effectiveness.
                 </p>
                 <p>
                   Today, we continue to help businesses across Sweden transform
@@ -97,14 +99,18 @@ export default function WhoWeArePage() {
                 <div className="space-y-4">
                   <div className="overflow-hidden rounded-lg">
                     <Image
-                      src="/placeholder.svg?height=300&width=250"
+                      width={500}
+                      height={500}
+                      src={Image1}
                       alt="Our team"
                       className="h-auto w-full object-cover transition-transform duration-500 hover:scale-110"
                     />
                   </div>
                   <div className="overflow-hidden rounded-lg">
                     <Image
-                      src="/placeholder.svg?height=250&width=250"
+                      width={500}
+                      height={500}
+                      src={Image2}
                       alt="Our office"
                       className="h-auto w-full object-cover transition-transform duration-500 hover:scale-110"
                     />
@@ -113,14 +119,18 @@ export default function WhoWeArePage() {
                 <div className="space-y-4 pt-8">
                   <div className="overflow-hidden rounded-lg">
                     <Image
-                      src="/placeholder.svg?height=250&width=250"
+                      width={500}
+                      height={500}
+                      src={Image3}
                       alt="Team collaboration"
                       className="h-auto w-full object-cover transition-transform duration-500 hover:scale-110"
                     />
                   </div>
                   <div className="overflow-hidden rounded-lg">
                     <Image
-                      src="/placeholder.svg?height=300&width=250"
+                      width={500}
+                      height={500}
+                      src={Image4}
                       alt="Development process"
                       className="h-auto w-full object-cover transition-transform duration-500 hover:scale-110"
                     />
@@ -252,8 +262,8 @@ export default function WhoWeArePage() {
               The People Behind Our Success
             </h2>
             <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-              Our talented team combines Swedish management with Serbian
-              development expertise
+              Our talented team combines Swedish management with international
+              expertise
             </p>
           </div>
 

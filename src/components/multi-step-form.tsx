@@ -81,7 +81,6 @@ export function MultiStepForm() {
 
   return (
     <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg border border-gray-100 dark:border-gray-700">
-      {/* Progress bar */}
       <div className="mb-8">
         <div className="flex justify-between mb-2">
           {steps.map((step, index) => (
@@ -120,7 +119,6 @@ export function MultiStepForm() {
         </div>
       </div>
 
-      {/* Step title */}
       <div className="mb-6">
         <h3 className="text-xl font-bold">{steps[currentStep].title}</h3>
         <p className="text-gray-500 dark:text-gray-400">
@@ -128,7 +126,6 @@ export function MultiStepForm() {
         </p>
       </div>
 
-      {/* Step content */}
       <div className="mb-8">
         {currentStep === 0 && (
           <div className="space-y-4">
@@ -358,7 +355,6 @@ export function MultiStepForm() {
         )}
       </div>
 
-      {/* Navigation buttons */}
       <div className="flex justify-between">
         <Button
           variant="outline"
