@@ -26,8 +26,8 @@ export default function ContactPage() {
   return (
     <>
       <section className="relative overflow-hidden py-20 md:py-28">
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-50 via-white to-blue-50 dark:from-purple-900/20 dark:via-gray-900 dark:to-blue-900/20">
-          <div className="absolute inset-0 opacity-20 dark:opacity-10">
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-100 via-white to-blue-100 dark:from-purple-900/20 dark:via-gray-900 dark:to-blue-900/20">
+          <div className="absolute inset-0 opacity-50 dark:opacity-30">
             {Array.from({ length: 5 }).map((_, i) => (
               <div
                 key={i}
@@ -336,7 +336,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="w-full py-16 md:py-24 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
+      <section className="w-full py-16 md:py-24">
         <div className="container px-4 md:px-6 mx-auto">
           <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
             <div className="inline-block rounded-full bg-purple-100 dark:bg-purple-900/30 px-3 py-1 text-sm text-purple-700 dark:text-purple-300">
@@ -467,7 +467,7 @@ export default function ContactPage() {
                   asChild
                   variant="outline"
                   size="lg"
-                  className="border-white hover:text-white text-white hover:bg-white/10"
+                  className="bg-transparent border-white hover:text-white text-white hover:bg-white/10"
                 >
                   <Link href="/what-we-offer">
                     Explore Our Services

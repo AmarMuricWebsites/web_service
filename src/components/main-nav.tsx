@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { ToggleTheme } from "./theme-toggle";
 
 export function MainNav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -78,12 +79,15 @@ export function MainNav() {
             Contact Us
           </Link>
         </nav>
-        <Button
-          asChild
-          className="bg-gradient-to-r text-white from-blue-600 to-teal-500 hover:from-blue-700 hover:to-teal-600"
-        >
-          <Link href="/book-consultation">Book a Consultation</Link>
-        </Button>
+        <div className="flex gap-2 items-center">
+          <Button
+            asChild
+            className="bg-gradient-to-r text-white from-blue-600 to-teal-500 hover:from-blue-700 hover:to-teal-600"
+          >
+            <Link href="/book-consultation">Book a Consultation</Link>
+          </Button>
+          <ToggleTheme />
+        </div>
 
         {isMenuOpen && (
           <div className="absolute top-16 left-0 right-0 bg-background shadow-lg md:hidden">

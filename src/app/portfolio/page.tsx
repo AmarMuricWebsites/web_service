@@ -18,8 +18,8 @@ export default function PortfolioPage() {
   return (
     <>
       <section className="relative overflow-hidden py-20 md:py-28">
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-50 via-white to-blue-50 dark:from-purple-900/20 dark:via-gray-900 dark:to-blue-900/20">
-          <div className="absolute inset-0 opacity-20 dark:opacity-10">
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-100 via-white to-blue-100 dark:from-purple-900/20 dark:via-gray-900 dark:to-blue-900/20">
+          <div className="absolute inset-0 opacity-50 dark:opacity-30">
             {Array.from({ length: 5 }).map((_, i) => (
               <div
                 key={i}
@@ -365,10 +365,10 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      <section className="w-full py-16 md:py-24 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
+      <section className="w-full py-16 md:py-24">
         <div className="container px-4 md:px-6 mx-auto">
           <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-            <div className="inline-block rounded-full bg-purple-100 dark:bg-purple-900/30 px-3 py-1 text-sm text-purple-700 dark:text-purple-300">
+            <div className="inline-block rounded-full bg-blue-100 dark:bg-blue-900/30 px-3 py-1 text-sm text-blue-700 dark:text-blue-300">
               More Projects
             </div>
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
@@ -411,13 +411,13 @@ export default function PortfolioPage() {
                     Firebase
                   </div>
                 </div>
-                <Link
+                {/* <Link
                   href="/contact"
                   className="inline-flex items-center text-blue-600 dark:text-blue-400 font-medium hover:text-blue-800 dark:hover:text-blue-300"
                 >
                   View details
                   <ArrowRight className="ml-1 h-4 w-4" />
-                </Link>
+                </Link> */}
               </CardContent>
             </Card>
 
@@ -450,13 +450,13 @@ export default function PortfolioPage() {
                     AWS
                   </div>
                 </div>
-                <Link
+                {/* <Link
                   href="/contact"
                   className="inline-flex items-center text-teal-600 dark:text-teal-400 font-medium hover:text-teal-800 dark:hover:text-teal-300"
                 >
                   View details
                   <ArrowRight className="ml-1 h-4 w-4" />
-                </Link>
+                </Link> */}
               </CardContent>
             </Card>
 
@@ -489,13 +489,13 @@ export default function PortfolioPage() {
                     SQL Server
                   </div>
                 </div>
-                <Link
+                {/* <Link
                   href="/contact"
                   className="inline-flex items-center text-purple-600 dark:text-purple-400 font-medium hover:text-purple-800 dark:hover:text-purple-300"
                 >
                   View details
                   <ArrowRight className="ml-1 h-4 w-4" />
-                </Link>
+                </Link> */}
               </CardContent>
             </Card>
 
@@ -527,13 +527,13 @@ export default function PortfolioPage() {
                     MongoDB
                   </div>
                 </div>
-                <Link
+                {/* <Link
                   href="/contact"
                   className="inline-flex items-center text-amber-600 dark:text-amber-400 font-medium hover:text-amber-800 dark:hover:text-amber-300"
                 >
                   View details
                   <ArrowRight className="ml-1 h-4 w-4" />
-                </Link>
+                </Link> */}
               </CardContent>
             </Card>
 
@@ -566,13 +566,13 @@ export default function PortfolioPage() {
                     PostgreSQL
                   </div>
                 </div>
-                <Link
+                {/* <Link
                   href="/contact"
                   className="inline-flex items-center text-red-600 dark:text-red-400 font-medium hover:text-red-800 dark:hover:text-red-300"
                 >
                   View details
                   <ArrowRight className="ml-1 h-4 w-4" />
-                </Link>
+                </Link> */}
               </CardContent>
             </Card>
 
@@ -605,13 +605,13 @@ export default function PortfolioPage() {
                     MySQL
                   </div>
                 </div>
-                <Link
+                {/* <Link
                   href="/contact"
                   className="inline-flex items-center text-green-600 dark:text-green-400 font-medium hover:text-green-800 dark:hover:text-green-300"
                 >
                   View details
                   <ArrowRight className="ml-1 h-4 w-4" />
-                </Link>
+                </Link> */}
               </CardContent>
             </Card>
           </div>
@@ -703,7 +703,7 @@ export default function PortfolioPage() {
                   asChild
                   variant="outline"
                   size="lg"
-                  className="border-white hover:text-white text-white hover:bg-white/10"
+                  className="bg-transparent border-white hover:text-white text-white hover:bg-white/10"
                 >
                   <Link href="/what-we-offer">
                     Explore Our Services

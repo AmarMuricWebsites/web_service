@@ -22,13 +22,16 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { motion, AnimatePresence, MotionStyle } from "framer-motion";
 
 export default function BookConsultationPage() {
   const [step, setStep] = useState(1);
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [direction, setDirection] = useState(0); // 1 for forward, -1 for backward
 
   const handleNextStep = () => {
     if (step < 3) {
+      setDirection(1);
       setStep(step + 1);
     } else {
       setFormSubmitted(true);
@@ -37,15 +40,67 @@ export default function BookConsultationPage() {
 
   const handlePrevStep = () => {
     if (step > 1) {
+      setDirection(-1);
       setStep(step - 1);
     }
+  };
+
+  // Animation variants for horizontal sliding with constant opacity
+  const slideVariants = {
+    enter: (direction: number) => ({
+      x: direction > 0 ? "100%" : "-100%",
+      transition: {
+        duration: 0.3,
+        ease: "easeOut",
+      },
+    }),
+    center: {
+      x: 0,
+      transition: {
+        duration: 0.3,
+        ease: "easeOut",
+      },
+    },
+    exit: (direction: number) => ({
+      x: direction > 0 ? "-100%" : "100%",
+      transition: {
+        duration: 0.3,
+        ease: "easeIn",
+      },
+    }),
+  };
+
+  const progressVariants = {
+    initial: { width: "0%" },
+    animate: {
+      width: `${((step - 1) / 2) * 100}%`,
+      transition: { duration: 0.3, ease: "easeInOut" },
+    },
+  };
+
+  const stepIconVariants = {
+    inactive: {
+      scale: 1,
+      backgroundColor: "var(--gray-200)",
+      color: "var(--gray-500)",
+    },
+    active: {
+      scale: [1, 1.1, 1],
+      backgroundColor: "var(--gradient-color)",
+      color: "white",
+      transition: {
+        duration: 0.5,
+        backgroundColor: { duration: 0.3 },
+        scale: { times: [0, 0.5, 1], duration: 0.5 },
+      },
+    },
   };
 
   return (
     <>
       <section className="relative overflow-hidden py-20 md:py-28">
-        <div className="absolute inset-0 bg-gradient-to-r from-teal-50 via-white to-blue-50 dark:from-teal-900/20 dark:via-gray-900 dark:to-blue-900/20">
-          <div className="absolute inset-0 opacity-20 dark:opacity-10">
+        <div className="absolute inset-0 bg-gradient-to-r from-teal-100 via-white to-blue-100 dark:from-teal-900/20 dark:via-gray-900 dark:to-blue-900/20">
+          <div className="absolute inset-0 opacity-50 dark:opacity-30">
             {Array.from({ length: 5 }).map((_, i) => (
               <div
                 key={i}
@@ -86,360 +141,481 @@ export default function BookConsultationPage() {
       <section className="w-full py-16 md:py-24">
         <div className="container px-4 md:px-6 mx-auto">
           <div className="max-w-4xl mx-auto">
-            {!formSubmitted ? (
-              <>
-                <div className="mb-10">
-                  <div className="flex justify-between items-center mb-6">
-                    {[1, 2, 3].map((i) => (
-                      <div key={i} className="flex flex-col items-center">
-                        <div
-                          className={`w-12 h-12 rounded-full flex items-center justify-center text-lg font-bold mb-2 ${
-                            step >= i
-                              ? "bg-gradient-to-r from-teal-600 to-blue-600 text-white"
-                              : "bg-gray-200 text-gray-500 dark:bg-gray-700"
-                          }`}
-                        >
-                          {i}
+            <AnimatePresence mode="wait" custom={direction}>
+              {!formSubmitted ? (
+                <motion.div
+                  key="form"
+                  initial="hidden"
+                  animate="visible"
+                  exit="exit"
+                  variants={slideVariants}
+                >
+                  <div className="mb-10">
+                    <div className="flex justify-between items-center mb-6">
+                      {[1, 2, 3].map((i) => (
+                        <div key={i} className="flex flex-col items-center">
+                          <motion.div
+                            className={`w-12 h-12 rounded-full flex items-center justify-center text-lg font-bold mb-2 ${
+                              step >= i
+                                ? "bg-gradient-to-r from-teal-600 to-blue-600 text-white"
+                                : "bg-gray-200 text-gray-500 dark:bg-gray-700"
+                            }`}
+                            initial="inactive"
+                            animate={step >= i ? "active" : "inactive"}
+                            variants={stepIconVariants}
+                            style={
+                              {
+                                "--gradient-color":
+                                  "linear-gradient(to right, #0d9488, #2563eb)",
+                              } as MotionStyle
+                            }
+                          >
+                            {i}
+                          </motion.div>
+                          <div className="text-sm font-medium">
+                            {i === 1
+                              ? "Your Info"
+                              : i === 2
+                              ? "Project Details"
+                              : "Schedule"}
+                          </div>
                         </div>
-                        <div className="text-sm font-medium">
-                          {i === 1
-                            ? "Your Info"
-                            : i === 2
-                            ? "Project Details"
-                            : "Schedule"}
-                        </div>
+                      ))}
+                    </div>
+                    <div className="relative">
+                      <div className="absolute top-0 left-0 w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-full">
+                        <motion.div
+                          className="h-full bg-gradient-to-r from-teal-600 to-blue-600 rounded-full"
+                          initial="initial"
+                          animate="animate"
+                          variants={progressVariants}
+                        ></motion.div>
                       </div>
-                    ))}
-                  </div>
-                  <div className="relative">
-                    <div className="absolute top-0 left-0 w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-full">
-                      <div
-                        className="h-full bg-gradient-to-r from-teal-600 to-blue-600 rounded-full transition-all duration-300"
-                        style={{ width: `${((step - 1) / 2) * 100}%` }}
-                      ></div>
                     </div>
                   </div>
-                </div>
 
-                <Card className="border-0 shadow-lg">
-                  <CardContent className="p-8">
-                    {step === 1 && (
-                      <div className="space-y-6">
-                        <h2 className="text-2xl font-bold">Your Information</h2>
-                        <p className="text-gray-500 dark:text-gray-400">
-                          Tell us a bit about yourself so we can personalize
-                          your consultation.
-                        </p>
-
-                        <div className="grid grid-cols-2 gap-6">
-                          <div className="space-y-2">
-                            <Label htmlFor="first-name">First name</Label>
-                            <Input
-                              id="first-name"
-                              placeholder="Enter your first name"
-                            />
-                          </div>
-                          <div className="space-y-2">
-                            <Label htmlFor="last-name">Last name</Label>
-                            <Input
-                              id="last-name"
-                              placeholder="Enter your last name"
-                            />
-                          </div>
-                        </div>
-
-                        <div className="space-y-2">
-                          <Label htmlFor="email">Email</Label>
-                          <Input
-                            id="email"
-                            type="email"
-                            placeholder="Enter your email"
-                          />
-                        </div>
-
-                        <div className="space-y-2">
-                          <Label htmlFor="phone">Phone</Label>
-                          <Input
-                            id="phone"
-                            type="tel"
-                            placeholder="Enter your phone number"
-                          />
-                        </div>
-
-                        <div className="space-y-2">
-                          <Label htmlFor="company">Company (optional)</Label>
-                          <Input
-                            id="company"
-                            placeholder="Enter your company name"
-                          />
-                        </div>
-                      </div>
-                    )}
-
-                    {step === 2 && (
-                      <div className="space-y-6">
-                        <h2 className="text-2xl font-bold">Project Details</h2>
-                        <p className="text-gray-500 dark:text-gray-400">
-                          Tell us about your project so we can prepare for our
-                          consultation.
-                        </p>
-
-                        <div className="space-y-2">
-                          <Label>
-                            What type of solution are you looking for?
-                          </Label>
-                          <RadioGroup
-                            defaultValue="website"
-                            className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2"
-                          >
-                            <div className="flex items-center space-x-2">
-                              <RadioGroupItem value="website" id="website" />
-                              <Label htmlFor="website">Website</Label>
-                            </div>
-                            <div className="flex items-center space-x-2">
-                              <RadioGroupItem value="web-app" id="web-app" />
-                              <Label htmlFor="web-app">Web Application</Label>
-                            </div>
-                            <div className="flex items-center space-x-2">
-                              <RadioGroupItem
-                                value="mobile-app"
-                                id="mobile-app"
-                              />
-                              <Label htmlFor="mobile-app">Mobile App</Label>
-                            </div>
-                            <div className="flex items-center space-x-2">
-                              <RadioGroupItem
-                                value="e-commerce"
-                                id="e-commerce"
-                              />
-                              <Label htmlFor="e-commerce">E-commerce</Label>
-                            </div>
-                            <div className="flex items-center space-x-2">
-                              <RadioGroupItem value="crm" id="crm" />
-                              <Label htmlFor="crm">CRM/ERP System</Label>
-                            </div>
-                            <div className="flex items-center space-x-2">
-                              <RadioGroupItem value="other" id="other" />
-                              <Label htmlFor="other">Other</Label>
-                            </div>
-                          </RadioGroup>
-                        </div>
-
-                        <div className="space-y-2">
-                          <Label htmlFor="budget">Approximate budget</Label>
-                          <Select>
-                            <SelectTrigger>
-                              <SelectValue placeholder="Select your budget range" />
-                            </SelectTrigger>
-                            <SelectContent>
-                              <SelectItem value="10-20k">
-                                10,000 - 20,000 SEK
-                              </SelectItem>
-                              <SelectItem value="20-50k">
-                                20,000 - 50,000 SEK
-                              </SelectItem>
-                              <SelectItem value="50-100k">
-                                50,000 - 100,000 SEK
-                              </SelectItem>
-                              <SelectItem value="100k+">
-                                100,000+ SEK
-                              </SelectItem>
-                              <SelectItem value="not-sure">
-                                Not sure yet
-                              </SelectItem>
-                            </SelectContent>
-                          </Select>
-                        </div>
-
-                        <div className="space-y-2">
-                          <Label htmlFor="timeline">Expected timeline</Label>
-                          <Select>
-                            <SelectTrigger>
-                              <SelectValue placeholder="Select your timeline" />
-                            </SelectTrigger>
-                            <SelectContent>
-                              <SelectItem value="asap">
-                                As soon as possible
-                              </SelectItem>
-                              <SelectItem value="1-month">
-                                Within 1 month
-                              </SelectItem>
-                              <SelectItem value="3-months">
-                                Within 3 months
-                              </SelectItem>
-                              <SelectItem value="6-months">
-                                Within 6 months
-                              </SelectItem>
-                              <SelectItem value="flexible">Flexible</SelectItem>
-                            </SelectContent>
-                          </Select>
-                        </div>
-
-                        <div className="space-y-2">
-                          <Label htmlFor="description">
-                            Project description
-                          </Label>
-                          <Textarea
-                            id="description"
-                            placeholder="Please describe your project, goals, and any specific requirements"
-                            className="min-h-[120px]"
-                          />
-                        </div>
-                      </div>
-                    )}
-
-                    {step === 3 && (
-                      <div className="space-y-6">
-                        <h2 className="text-2xl font-bold">
-                          Schedule Your Consultation
-                        </h2>
-                        <p className="text-gray-500 dark:text-gray-400">
-                          Choose a date and time that works for you.
-                          Consultations are 30 minutes.
-                        </p>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                          <div className="space-y-2">
-                            <Label htmlFor="date">Preferred date</Label>
-                            <Input id="date" type="date" />
-                          </div>
-                          <div className="space-y-2">
-                            <Label htmlFor="time">Preferred time</Label>
-                            <Select>
-                              <SelectTrigger>
-                                <SelectValue placeholder="Select a time" />
-                              </SelectTrigger>
-                              <SelectContent>
-                                <SelectItem value="9:00">9:00 AM</SelectItem>
-                                <SelectItem value="10:00">10:00 AM</SelectItem>
-                                <SelectItem value="11:00">11:00 AM</SelectItem>
-                                <SelectItem value="13:00">1:00 PM</SelectItem>
-                                <SelectItem value="14:00">2:00 PM</SelectItem>
-                                <SelectItem value="15:00">3:00 PM</SelectItem>
-                                <SelectItem value="16:00">4:00 PM</SelectItem>
-                              </SelectContent>
-                            </Select>
-                          </div>
-                        </div>
-
-                        <div className="space-y-2">
-                          <Label htmlFor="timezone">Your timezone</Label>
-                          <Select defaultValue="CET">
-                            <SelectTrigger>
-                              <SelectValue placeholder="Select your timezone" />
-                            </SelectTrigger>
-                            <SelectContent>
-                              <SelectItem value="CET">
-                                Central European Time (CET)
-                              </SelectItem>
-                              <SelectItem value="GMT">
-                                Greenwich Mean Time (GMT)
-                              </SelectItem>
-                              <SelectItem value="EST">
-                                Eastern Standard Time (EST)
-                              </SelectItem>
-                              <SelectItem value="PST">
-                                Pacific Standard Time (PST)
-                              </SelectItem>
-                              <SelectItem value="other">Other</SelectItem>
-                            </SelectContent>
-                          </Select>
-                        </div>
-
-                        <div className="space-y-2">
-                          <Label htmlFor="alternative">
-                            Alternative date/time (optional)
-                          </Label>
-                          <Textarea
-                            id="alternative"
-                            placeholder="If you have alternative dates/times that work for you, please list them here"
-                            className="min-h-[80px]"
-                          />
-                        </div>
-
-                        <div className="space-y-2">
-                          <Label htmlFor="communication">
-                            Preferred communication method
-                          </Label>
-                          <RadioGroup
-                            defaultValue="video"
-                            className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2"
-                          >
-                            <div className="flex items-center space-x-2">
-                              <RadioGroupItem value="video" id="video" />
-                              <Label htmlFor="video">
-                                Video call (Zoom/Teams)
-                              </Label>
-                            </div>
-                            <div className="flex items-center space-x-2">
-                              <RadioGroupItem value="phone" id="phone" />
-                              <Label htmlFor="phone">Phone call</Label>
-                            </div>
-                            <div className="flex items-center space-x-2">
-                              <RadioGroupItem
-                                value="in-person"
-                                id="in-person"
-                              />
-                              <Label htmlFor="in-person">
-                                In-person (Stockholm)
-                              </Label>
-                            </div>
-                          </RadioGroup>
-                        </div>
-                      </div>
-                    )}
-
-                    <div className="flex justify-between mt-8">
-                      {step > 1 ? (
-                        <Button variant="outline" onClick={handlePrevStep}>
-                          Back
-                        </Button>
-                      ) : (
-                        <div></div>
-                      )}
-                      <Button
-                        onClick={handleNextStep}
-                        className="bg-gradient-to-r text-white from-teal-600 to-blue-600 hover:from-teal-700 hover:to-blue-700"
+                  <Card className="border-0 shadow-lg overflow-hidden">
+                    <CardContent className="p-8 relative">
+                      <AnimatePresence
+                        mode="wait"
+                        custom={direction}
+                        initial={false}
                       >
-                        {step < 3 ? "Continue" : "Submit Request"}
-                      </Button>
+                        {step === 1 && (
+                          <motion.div
+                            key="step1"
+                            custom={direction}
+                            initial="enter"
+                            animate="center"
+                            exit="exit"
+                            variants={slideVariants}
+                            className="space-y-6"
+                          >
+                            <h2 className="text-2xl font-bold">
+                              Your Information
+                            </h2>
+                            <p className="text-gray-500 dark:text-gray-400">
+                              Tell us a bit about yourself so we can personalize
+                              your consultation.
+                            </p>
+
+                            <div className="grid grid-cols-2 gap-6">
+                              <div className="space-y-2">
+                                <Label htmlFor="first-name">First name</Label>
+                                <Input
+                                  id="first-name"
+                                  placeholder="Enter your first name"
+                                />
+                              </div>
+                              <div className="space-y-2">
+                                <Label htmlFor="last-name">Last name</Label>
+                                <Input
+                                  id="last-name"
+                                  placeholder="Enter your last name"
+                                />
+                              </div>
+                            </div>
+
+                            <div className="space-y-2">
+                              <Label htmlFor="email">Email</Label>
+                              <Input
+                                id="email"
+                                type="email"
+                                placeholder="Enter your email"
+                              />
+                            </div>
+
+                            <div className="space-y-2">
+                              <Label htmlFor="phone">Phone</Label>
+                              <Input
+                                id="phone"
+                                type="tel"
+                                placeholder="Enter your phone number"
+                              />
+                            </div>
+
+                            <div className="space-y-2">
+                              <Label htmlFor="company">
+                                Company (optional)
+                              </Label>
+                              <Input
+                                id="company"
+                                placeholder="Enter your company name"
+                              />
+                            </div>
+                          </motion.div>
+                        )}
+
+                        {step === 2 && (
+                          <motion.div
+                            key="step2"
+                            custom={direction}
+                            initial="enter"
+                            animate="center"
+                            exit="exit"
+                            variants={slideVariants}
+                            className="space-y-6"
+                          >
+                            <h2 className="text-2xl font-bold">
+                              Project Details
+                            </h2>
+                            <p className="text-gray-500 dark:text-gray-400">
+                              Tell us about your project so we can prepare for
+                              our consultation.
+                            </p>
+
+                            <div className="space-y-2">
+                              <Label>
+                                What type of solution are you looking for?
+                              </Label>
+                              <RadioGroup
+                                defaultValue="website"
+                                className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2"
+                              >
+                                <div className="flex items-center space-x-2">
+                                  <RadioGroupItem
+                                    value="website"
+                                    id="website"
+                                  />
+                                  <Label htmlFor="website">Website</Label>
+                                </div>
+                                <div className="flex items-center space-x-2">
+                                  <RadioGroupItem
+                                    value="web-app"
+                                    id="web-app"
+                                  />
+                                  <Label htmlFor="web-app">
+                                    Web Application
+                                  </Label>
+                                </div>
+                                <div className="flex items-center space-x-2">
+                                  <RadioGroupItem
+                                    value="mobile-app"
+                                    id="mobile-app"
+                                  />
+                                  <Label htmlFor="mobile-app">Mobile App</Label>
+                                </div>
+                                <div className="flex items-center space-x-2">
+                                  <RadioGroupItem
+                                    value="e-commerce"
+                                    id="e-commerce"
+                                  />
+                                  <Label htmlFor="e-commerce">E-commerce</Label>
+                                </div>
+                                <div className="flex items-center space-x-2">
+                                  <RadioGroupItem value="crm" id="crm" />
+                                  <Label htmlFor="crm">CRM/ERP System</Label>
+                                </div>
+                                <div className="flex items-center space-x-2">
+                                  <RadioGroupItem value="other" id="other" />
+                                  <Label htmlFor="other">Other</Label>
+                                </div>
+                              </RadioGroup>
+                            </div>
+
+                            <div className="space-y-2">
+                              <Label htmlFor="budget">Approximate budget</Label>
+                              <Select>
+                                <SelectTrigger>
+                                  <SelectValue placeholder="Select your budget range" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                  <SelectItem value="10-20k">
+                                    10,000 - 20,000 SEK
+                                  </SelectItem>
+                                  <SelectItem value="20-50k">
+                                    20,000 - 50,000 SEK
+                                  </SelectItem>
+                                  <SelectItem value="50-100k">
+                                    50,000 - 100,000 SEK
+                                  </SelectItem>
+                                  <SelectItem value="100k+">
+                                    100,000+ SEK
+                                  </SelectItem>
+                                  <SelectItem value="not-sure">
+                                    Not sure yet
+                                  </SelectItem>
+                                </SelectContent>
+                              </Select>
+                            </div>
+
+                            <div className="space-y-2">
+                              <Label htmlFor="timeline">
+                                Expected timeline
+                              </Label>
+                              <Select>
+                                <SelectTrigger>
+                                  <SelectValue placeholder="Select your timeline" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                  <SelectItem value="asap">
+                                    As soon as possible
+                                  </SelectItem>
+                                  <SelectItem value="1-month">
+                                    Within 1 month
+                                  </SelectItem>
+                                  <SelectItem value="3-months">
+                                    Within 3 months
+                                  </SelectItem>
+                                  <SelectItem value="6-months">
+                                    Within 6 months
+                                  </SelectItem>
+                                  <SelectItem value="flexible">
+                                    Flexible
+                                  </SelectItem>
+                                </SelectContent>
+                              </Select>
+                            </div>
+
+                            <div className="space-y-2">
+                              <Label htmlFor="description">
+                                Project description
+                              </Label>
+                              <Textarea
+                                id="description"
+                                placeholder="Please describe your project, goals, and any specific requirements"
+                                className="min-h-[120px]"
+                              />
+                            </div>
+                          </motion.div>
+                        )}
+
+                        {step === 3 && (
+                          <motion.div
+                            key="step3"
+                            custom={direction}
+                            initial="enter"
+                            animate="center"
+                            exit="exit"
+                            variants={slideVariants}
+                            className="space-y-6"
+                          >
+                            <h2 className="text-2xl font-bold">
+                              Schedule Your Consultation
+                            </h2>
+                            <p className="text-gray-500 dark:text-gray-400">
+                              Choose a date and time that works for you.
+                              Consultations are 30 minutes.
+                            </p>
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                              <div className="space-y-2">
+                                <Label htmlFor="date">Preferred date</Label>
+                                <Input id="date" type="date" />
+                              </div>
+                              <div className="space-y-2">
+                                <Label htmlFor="time">Preferred time</Label>
+                                <Select>
+                                  <SelectTrigger>
+                                    <SelectValue placeholder="Select a time" />
+                                  </SelectTrigger>
+                                  <SelectContent>
+                                    <SelectItem value="9:00">
+                                      9:00 AM
+                                    </SelectItem>
+                                    <SelectItem value="10:00">
+                                      10:00 AM
+                                    </SelectItem>
+                                    <SelectItem value="11:00">
+                                      11:00 AM
+                                    </SelectItem>
+                                    <SelectItem value="13:00">
+                                      1:00 PM
+                                    </SelectItem>
+                                    <SelectItem value="14:00">
+                                      2:00 PM
+                                    </SelectItem>
+                                    <SelectItem value="15:00">
+                                      3:00 PM
+                                    </SelectItem>
+                                    <SelectItem value="16:00">
+                                      4:00 PM
+                                    </SelectItem>
+                                  </SelectContent>
+                                </Select>
+                              </div>
+                            </div>
+
+                            <div className="space-y-2">
+                              <Label htmlFor="timezone">Your timezone</Label>
+                              <Select defaultValue="CET">
+                                <SelectTrigger>
+                                  <SelectValue placeholder="Select your timezone" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                  <SelectItem value="CET">
+                                    Central European Time (CET)
+                                  </SelectItem>
+                                  <SelectItem value="GMT">
+                                    Greenwich Mean Time (GMT)
+                                  </SelectItem>
+                                  <SelectItem value="EST">
+                                    Eastern Standard Time (EST)
+                                  </SelectItem>
+                                  <SelectItem value="PST">
+                                    Pacific Standard Time (PST)
+                                  </SelectItem>
+                                  <SelectItem value="other">Other</SelectItem>
+                                </SelectContent>
+                              </Select>
+                            </div>
+
+                            <div className="space-y-2">
+                              <Label htmlFor="alternative">
+                                Alternative date/time (optional)
+                              </Label>
+                              <Textarea
+                                id="alternative"
+                                placeholder="If you have alternative dates/times that work for you, please list them here"
+                                className="min-h-[80px]"
+                              />
+                            </div>
+
+                            <div className="space-y-2">
+                              <Label htmlFor="communication">
+                                Preferred communication method
+                              </Label>
+                              <RadioGroup
+                                defaultValue="video"
+                                className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2"
+                              >
+                                <div className="flex items-center space-x-2">
+                                  <RadioGroupItem value="video" id="video" />
+                                  <Label htmlFor="video">
+                                    Video call (Zoom/Teams)
+                                  </Label>
+                                </div>
+                                <div className="flex items-center space-x-2">
+                                  <RadioGroupItem value="phone" id="phone" />
+                                  <Label htmlFor="phone">Phone call</Label>
+                                </div>
+                                <div className="flex items-center space-x-2">
+                                  <RadioGroupItem
+                                    value="in-person"
+                                    id="in-person"
+                                  />
+                                  <Label htmlFor="in-person">
+                                    In-person (Stockholm)
+                                  </Label>
+                                </div>
+                              </RadioGroup>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+
+                      <div className="flex justify-between mt-8">
+                        {step > 1 ? (
+                          <Button variant="outline" onClick={handlePrevStep}>
+                            Back
+                          </Button>
+                        ) : (
+                          <div></div>
+                        )}
+                        <Button
+                          onClick={handleNextStep}
+                          className="bg-gradient-to-r text-white from-teal-600 to-blue-600 hover:from-teal-700 hover:to-blue-700"
+                        >
+                          {step < 3 ? "Continue" : "Submit Request"}
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="success"
+                  initial={{ x: "100%" }}
+                  animate={{ x: 0 }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                >
+                  <Card className="border-0 shadow-lg text-center p-8">
+                    <div className="flex flex-col items-center space-y-6">
+                      <motion.div
+                        className="w-20 h-20 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center"
+                        initial={{ scale: 0 }}
+                        animate={{
+                          scale: 1,
+                          transition: {
+                            type: "spring",
+                            stiffness: 200,
+                            damping: 15,
+                            delay: 0.2,
+                          },
+                        }}
+                      >
+                        <CheckCircle className="h-10 w-10 text-green-600 dark:text-green-400" />
+                      </motion.div>
+                      <motion.h2
+                        className="text-3xl font-bold"
+                        initial={{ y: 20 }}
+                        animate={{
+                          y: 0,
+                          transition: { delay: 0.3, duration: 0.3 },
+                        }}
+                      >
+                        Consultation Request Submitted!
+                      </motion.h2>
+                      <motion.p
+                        className="text-xl text-gray-500 dark:text-gray-400 max-w-2xl"
+                        initial={{ y: 20 }}
+                        animate={{
+                          y: 0,
+                          transition: { delay: 0.4, duration: 0.3 },
+                        }}
+                      >
+                        Thank you for booking a consultation with us. {"We'll"}{" "}
+                        review your request and get back to you within 24 hours
+                        to confirm your appointment.
+                      </motion.p>
+                      <motion.div
+                        className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-md mt-4"
+                        initial={{ y: 20 }}
+                        animate={{
+                          y: 0,
+                          transition: { delay: 0.5, duration: 0.3 },
+                        }}
+                      >
+                        <Button asChild variant="outline">
+                          <Link href="/">Return Home</Link>
+                        </Button>
+                        <Button
+                          asChild
+                          className="bg-gradient-to-r from-teal-600 to-blue-600 hover:from-teal-700 hover:to-blue-700"
+                        >
+                          <Link href="/what-we-offer">View Our Services</Link>
+                        </Button>
+                      </motion.div>
                     </div>
-                  </CardContent>
-                </Card>
-              </>
-            ) : (
-              <Card className="border-0 shadow-lg text-center p-8">
-                <div className="flex flex-col items-center space-y-6">
-                  <div className="w-20 h-20 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
-                    <CheckCircle className="h-10 w-10 text-green-600 dark:text-green-400" />
-                  </div>
-                  <h2 className="text-3xl font-bold">
-                    Consultation Request Submitted!
-                  </h2>
-                  <p className="text-xl text-gray-500 dark:text-gray-400 max-w-2xl">
-                    Thank you for booking a consultation with us. {"We'll"}{" "}
-                    review your request and get back to you within 24 hours to
-                    confirm your appointment.
-                  </p>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-md mt-4">
-                    <Button asChild variant="outline">
-                      <Link href="/">Return Home</Link>
-                    </Button>
-                    <Button
-                      asChild
-                      className="bg-gradient-to-r from-teal-600 to-blue-600 hover:from-teal-700 hover:to-blue-700"
-                    >
-                      <Link href="/what-we-offer">View Our Services</Link>
-                    </Button>
-                  </div>
-                </div>
-              </Card>
-            )}
+                  </Card>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         </div>
       </section>
 
-      <section className="w-full py-16 md:py-24 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
+      <section className="w-full py-16 md:py-24">
         <div className="container px-4 md:px-6 mx-auto">
           <div className="grid gap-10 lg:grid-cols-2 items-center">
             <div>
