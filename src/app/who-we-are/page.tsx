@@ -6,7 +6,7 @@ import {
   Sparkles,
   Lightbulb,
   Target,
-  User,
+  // User,
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -20,8 +20,8 @@ export default function WhoWeArePage() {
   return (
     <>
       <section className="relative overflow-hidden py-20 md:py-28">
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-50 via-white to-blue-50 dark:from-purple-900/20 dark:via-gray-900 dark:to-blue-900/20">
-          <div className="absolute inset-0 opacity-20 dark:opacity-10">
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-100 via-white to-blue-100 dark:from-purple-900/20 dark:via-gray-900 dark:to-blue-900/20">
+          <div className="absolute inset-0 opacity-50 dark:opacity-30">
             {Array.from({ length: 5 }).map((_, i) => (
               <div
                 key={i}
@@ -63,7 +63,7 @@ export default function WhoWeArePage() {
         <div className="container px-4 md:px-6 mx-auto">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
             <div className="space-y-6">
-              <div className="inline-block rounded-full bg-blue-100 dark:bg-blue-900/30 px-3 py-1 text-sm text-blue-700 dark:text-blue-300">
+              <div className="inline-block rounded-full bg-amber-100 dark:bg-amber-900/30 px-3 py-1 text-sm text-amber-700 dark:text-amber-300">
                 Our Journey
               </div>
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
@@ -142,10 +142,10 @@ export default function WhoWeArePage() {
         </div>
       </section>
 
-      <section className="w-full py-16 md:py-24 bg-gradient-to-b from-white to-purple-50 dark:from-gray-900 dark:to-purple-900/20">
+      <section className="w-full py-16 md:py-24">
         <div className="container px-4 md:px-6 mx-auto">
           <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-            <div className="inline-block rounded-full bg-purple-100 dark:bg-purple-900/30 px-3 py-1 text-sm text-purple-700 dark:text-purple-300">
+            <div className="inline-block rounded-full bg-amber-100 dark:bg-amber-900/30 px-3 py-1 text-sm text-amber-700 dark:text-amber-300">
               Our Values
             </div>
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
@@ -255,7 +255,7 @@ export default function WhoWeArePage() {
       <section className="w-full py-16 md:py-24">
         <div className="container px-4 md:px-6 mx-auto">
           <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-            <div className="inline-block rounded-full bg-blue-100 dark:bg-blue-900/30 px-3 py-1 text-sm text-blue-700 dark:text-blue-300">
+            <div className="inline-block rounded-full bg-amber-100 dark:bg-amber-900/30 px-3 py-1 text-sm text-amber-700 dark:text-amber-300">
               Meet The Team
             </div>
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
@@ -269,12 +269,12 @@ export default function WhoWeArePage() {
 
           <div className="flex justify-center flex-wrap gap-8">
             <div className="group">
-              <div className="relative overflow-hidden rounded-xl h-[350px] w-[300px] bg-blue-200">
-                {/* <Image
+              {/* <div className="relative overflow-hidden rounded-xl h-[350px] w-[300px] bg-blue-200">
+                <Image
                   src="/placeholder.svg?height=400&width=300"
                   alt="Team Member"
                   className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110"
-                /> */}
+                />
                 <User className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2" />
 
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
@@ -315,7 +315,7 @@ export default function WhoWeArePage() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
               <div className="mt-4 text-center">
                 <h3 className="text-xl font-bold">Adnan Skrijelj</h3>
                 <p className="text-gray-500 dark:text-gray-400">
@@ -325,12 +325,12 @@ export default function WhoWeArePage() {
             </div>
 
             <div className="group">
-              <div className="relative overflow-hidden rounded-xl h-[350px] w-[300px] bg-blue-200">
-                {/* <Image
+              {/* <div className="relative overflow-hidden rounded-xl h-[350px] w-[300px] bg-blue-200">
+                <Image
                   src="/placeholder.svg?height=400&width=300"
                   alt="Team Member"
                   className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110"
-                /> */}
+                />
                 <User className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
                   <div className="p-4 w-full">
@@ -370,7 +370,7 @@ export default function WhoWeArePage() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
               <div className="mt-4 text-center">
                 <h3 className="text-xl font-bold">Amar Muric</h3>
                 <p className="text-gray-500 dark:text-gray-400">
@@ -382,8 +382,8 @@ export default function WhoWeArePage() {
         </div>
       </section>
 
-      <section className="w-full py-16 md:py-24 bg-gradient-to-br from-purple-600 to-blue-600 dark:from-purple-900 dark:to-blue-900 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
+      <section className="w-full py-16 md:py-24 bg-gradient-to-br from-amber-600 to-orange-600 dark:from-amber-900 dark:to-orange-900 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-30">
           {Array.from({ length: 20 }).map((_, i) => (
             <div
               key={i}
@@ -413,7 +413,7 @@ export default function WhoWeArePage() {
               <Button
                 asChild
                 size="lg"
-                className="bg-white text-purple-600 hover:bg-gray-100"
+                className="bg-white text-amber-600 hover:bg-gray-100"
               >
                 <Link href="/contact">Contact Us</Link>
               </Button>
@@ -421,7 +421,7 @@ export default function WhoWeArePage() {
                 asChild
                 variant="outline"
                 size="lg"
-                className="border-white text-white hover:bg-white/10"
+                className="bg-transparent border-white text-white hover:text-white hover:bg-white/10"
               >
                 <Link href="/what-we-offer">Explore Our Services</Link>
               </Button>

@@ -16,7 +16,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import HeroImage from "@/public/web.jpg";
 import Image from "next/image";
-import { Logos } from "@/components/logos";
+// import { Logos } from "@/components/logos";
 
 export default function Home() {
   return (
@@ -295,7 +295,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="w-full py-16 md:py-20 bg-gradient-to-b from-white to-blue-50 dark:from-gray-950 dark:to-gray-900">
+      <section className="w-full py-16 md:py-20">
         <div className="container px-4 md:px-6 mx-auto">
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             <div className="flex flex-col items-center text-center">
@@ -648,9 +648,9 @@ export default function Home() {
         </div>
       </section>
 
-      <Logos />
+      {/* <Logos /> */}
 
-      <section className="w-full py-20 md:py-28 lg:py-32 bg-gradient-to-b from-white to-blue-50 dark:from-gray-950 dark:to-gray-900">
+      <section className="w-full py-20 md:py-28 lg:py-32">
         <div className="container px-4 md:px-6 mx-auto">
           <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
             <div className="inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-4 py-1.5 text-sm font-medium text-blue-700 dark:border-blue-800 dark:bg-blue-900/30 dark:text-blue-300">
@@ -769,7 +769,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="w-full py-16 md:py-24 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
+      <section className="w-full py-16 md:py-24">
         <div className="container px-4 md:px-6 mx-auto">
           <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
             <div className="inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-4 py-1.5 text-sm font-medium text-blue-700 dark:border-blue-800 dark:bg-blue-900/30 dark:text-blue-300">
@@ -907,7 +907,7 @@ export default function Home() {
                 asChild
                 variant="outline"
                 size="lg"
-                className="border-white text-white hover:bg-white/10 rounded-full h-14 px-8 text-lg"
+                className="bg-transparent border-white text-white hover:text-white hover:bg-white/10 rounded-full h-14 px-8 text-lg"
               >
                 <Link href="/what-we-offer">
                   Explore Services

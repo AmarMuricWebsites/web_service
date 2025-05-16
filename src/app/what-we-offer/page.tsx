@@ -27,8 +27,8 @@ export default function WhatWeOfferPage() {
   return (
     <>
       <section className="relative overflow-hidden py-20 md:py-28">
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-50 via-white to-blue-50 dark:from-purple-900/20 dark:via-gray-900 dark:to-blue-900/20">
-          <div className="absolute inset-0 opacity-20 dark:opacity-10">
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-100 via-white to-blue-100 dark:from-purple-900/20 dark:via-gray-900 dark:to-blue-900/20">
+          <div className="absolute inset-0 opacity-50 dark:opacity-30">
             {Array.from({ length: 5 }).map((_, i) => (
               <div
                 key={i}
@@ -69,7 +69,7 @@ export default function WhatWeOfferPage() {
       <section className="w-full py-16 md:py-24">
         <div className="container px-4 md:px-6 mx-auto">
           <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-            <div className="inline-block rounded-full bg-blue-100 dark:bg-blue-900/30 px-3 py-1 text-sm text-blue-700 dark:text-blue-300">
+            <div className="inline-block rounded-full bg-purple-100 dark:bg-purple-900/30 px-3 py-1 text-sm text-purple-700 dark:text-purple-300">
               Our Technology Stack
             </div>
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
@@ -372,10 +372,10 @@ export default function WhatWeOfferPage() {
         </div>
       </section>
 
-      <section className="w-full py-16 md:py-24 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
+      <section className="w-full py-16 md:py-24">
         <div className="container px-4 md:px-6 mx-auto">
           <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-            <div className="inline-block rounded-full bg-blue-100 dark:bg-blue-900/30 px-3 py-1 text-sm text-blue-700 dark:text-blue-300">
+            <div className="inline-block rounded-full bg-purple-100 dark:bg-purple-900/30 px-3 py-1 text-sm text-purple-700 dark:text-purple-300">
               Service Packages
             </div>
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
@@ -709,10 +709,10 @@ export default function WhatWeOfferPage() {
         </div>
       </section>
 
-      <section className="w-full py-16 md:py-24 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
+      <section className="w-full py-16 md:py-24">
         <div className="container px-4 md:px-6 mx-auto">
           <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-            <div className="inline-block rounded-full bg-teal-100 dark:bg-teal-900/30 px-3 py-1 text-sm text-teal-700 dark:text-teal-300">
+            <div className="inline-block rounded-full bg-purple-100 dark:bg-purple-900/30 px-3 py-1 text-sm text-purple-700 dark:text-purple-300">
               Customizations
             </div>
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
@@ -850,7 +850,7 @@ export default function WhatWeOfferPage() {
       <section className="w-full py-16 md:py-24">
         <div className="container px-4 md:px-6 mx-auto">
           <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-            <div className="inline-block rounded-full bg-blue-100 dark:bg-blue-900/30 px-3 py-1 text-sm text-blue-700 dark:text-blue-300">
+            <div className="inline-block rounded-full bg-purple-100 dark:bg-purple-900/30 px-3 py-1 text-sm text-purple-700 dark:text-purple-300">
               Key Features
             </div>
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
@@ -934,10 +934,10 @@ export default function WhatWeOfferPage() {
         </div>
       </section>
 
-      <section className="w-full py-16 md:py-24 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
+      <section className="w-full py-16 md:py-24">
         <div className="container px-4 md:px-6 mx-auto">
           <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-            <div className="inline-block rounded-full bg-amber-100 dark:bg-amber-900/30 px-3 py-1 text-sm text-amber-700 dark:text-amber-300">
+            <div className="inline-block rounded-full bg-purple-100 dark:bg-purple-900/30 px-3 py-1 text-sm text-purple-700 dark:text-purple-300">
               Client Testimonials
             </div>
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
@@ -950,7 +950,6 @@ export default function WhatWeOfferPage() {
           </div>
 
           <div className="grid gap-8 md:grid-cols-3">
-            {/* Testimonial 1 */}
             <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg border border-gray-100 dark:border-gray-700">
               <div className="flex items-center gap-4 mb-6">
                 <div className="h-12 w-12 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-lg font-bold">
@@ -985,7 +984,6 @@ export default function WhatWeOfferPage() {
               </p>
             </div>
 
-            {/* Testimonial 2 */}
             <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg border border-gray-100 dark:border-gray-700">
               <div className="flex items-center gap-4 mb-6">
                 <div className="h-12 w-12 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-lg font-bold">
@@ -1020,7 +1018,6 @@ export default function WhatWeOfferPage() {
               </p>
             </div>
 
-            {/* Testimonial 3 */}
             <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg border border-gray-100 dark:border-gray-700">
               <div className="flex items-center gap-4 mb-6">
                 <div className="h-12 w-12 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-lg font-bold">
@@ -1057,7 +1054,7 @@ export default function WhatWeOfferPage() {
         </div>
       </section>
 
-      <section className="w-full py-16 md:py-24 bg-gradient-to-br from-blue-600 to-teal-600 dark:from-blue-700 dark:to-teal-700">
+      <section className="w-full py-16 md:py-24 bg-gradient-to-br from-purple-600 to-blue-600 dark:from-purple-700 dark:to-blue-700">
         <div className="container px-4 md:px-6 mx-auto">
           <div className="grid gap-6 lg:grid-cols-2 items-center">
             <div className="space-y-4">
@@ -1080,7 +1077,7 @@ export default function WhatWeOfferPage() {
                   asChild
                   variant="outline"
                   size="lg"
-                  className="border-white hover:text-white text-white hover:bg-white/10"
+                  className="bg-transparent border-white hover:text-white text-white hover:bg-white/10"
                 >
                   <Link href="/portfolio">
                     View Our Portfolio
