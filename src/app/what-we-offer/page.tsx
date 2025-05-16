@@ -728,7 +728,7 @@ export default function WhatWeOfferPage() {
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead>
-                  <tr className="bg-gradient-to-r from-teal-500 to-blue-500 text-white">
+                  <tr className="bg-gradient-to-r from-blue-500 to-purple-500 text-white">
                     <th className="py-4 px-6 text-left">Feature</th>
                     <th className="py-4 px-6 text-right">Price (SEK)</th>
                     <th className="py-4 px-6 text-center">Details</th>

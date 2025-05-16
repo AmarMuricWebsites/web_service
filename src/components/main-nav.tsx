@@ -16,23 +16,24 @@ export function MainNav() {
   return (
     <header className="sticky shadow-md top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between mx-auto">
-        <Link href="/" className="flex items-center space-x-2">
-          <div className="h-8 w-8 rounded-full bg-gradient-to-br from-blue-500 to-teal-400 flex items-center justify-center text-white font-bold">
-            IT
-          </div>
-          <span className="font-bold text-xl hidden sm:inline-block">
-            IT System Solutions
-          </span>
-        </Link>
+        <div className="flex gap-2 items-center">
+          <button
+            className="lg:hidden p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+          <Link href="/" className="flex items-center space-x-2">
+            <div className="h-8 w-8 rounded-full bg-gradient-to-br from-blue-500 to-teal-400 flex items-center justify-center text-white font-bold">
+              IT
+            </div>
+            <span className="font-bold text-xl hidden sm:inline-block">
+              IT System Solutions
+            </span>
+          </Link>
+        </div>
 
-        <button
-          className="md:hidden p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-
-        <nav className="hidden md:flex items-center space-x-6">
+        <nav className="hidden lg:flex items-center space-x-6">
           <Link
             href="/"
             className={cn(

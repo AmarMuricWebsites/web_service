@@ -159,7 +159,7 @@ export default function PortfolioPage() {
                   AWS
                 </div>
               </div>
-              <Button
+              {/* <Button
                 asChild
                 className="bg-gradient-to-r from-blue-600 to-teal-500 hover:from-blue-700 hover:to-teal-600"
               >
@@ -167,7 +167,7 @@ export default function PortfolioPage() {
                   View Case Study
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
-              </Button>
+              </Button> */}
             </div>
           </div>
 
@@ -240,7 +240,7 @@ export default function PortfolioPage() {
                   Vercel
                 </div>
               </div>
-              <Button
+              {/* <Button
                 asChild
                 className="bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600"
               >
@@ -248,7 +248,7 @@ export default function PortfolioPage() {
                   View Case Study
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
-              </Button>
+              </Button> */}
             </div>
             <div className="relative">
               <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-purple-600 to-pink-500 opacity-30 blur-xl"></div>
@@ -351,7 +351,7 @@ export default function PortfolioPage() {
                   Google Maps API
                 </div>
               </div>
-              <Button
+              {/* <Button
                 asChild
                 className="bg-gradient-to-r from-amber-600 to-orange-500 hover:from-amber-700 hover:to-orange-600"
               >
@@ -359,7 +359,7 @@ export default function PortfolioPage() {
                   View Case Study
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
-              </Button>
+              </Button> */}
             </div>
           </div>
         </div>
